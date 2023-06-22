@@ -3,3 +3,38 @@
 @import "avatar";
 @import "form_legend_clear";
 @import "navbar";
+
+.form-control {
+    border: 2;
+	width: 15rem;
+}
+
+.btn-secondary {
+	border: 0;
+	background-color: grey;
+	border-radius: 14px;
+}
+
+.border {
+	border-radius: 6px;
+}
+
+.border-dark {
+	opacity: 0.5;
+}
+
+.position-relative {
+	position: relative;
+}
+
+.position-absolute {
+	position: absolute;
+	bottom: 30px;
+	right: 35px;
+}
+
+.position-message {
+	position: absolute;
+	bottom: 30px;
+	right: 400px;
+}
