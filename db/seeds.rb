@@ -22,6 +22,7 @@ User.destroy_all
 
 puts "Database clean!"
 
+puts "Creating users..."
 agent_one = User.create!(
   name: 'agent one',
   email: 'one@email.com',
@@ -37,18 +38,30 @@ agent_two = User.create!(
   cea_number: 'R654321C',
   password: '321321'
 )
+puts "Users done! 🚀"
 
+puts "Creating campaigns..."
 campaign_one = Campaign.create!(
   name: 'Marina One Residences',
-  date_created: '15/05/2023',
+  date_created: Date.today - 1.week,
   details: 'Lead generation campaign',
   user: agent_one
 )
 
+campaign_two = Campaign.create!(
+  name: 'Cityhub',
+  date_created: Date.today,
+  details: 'Lead generation campaign',
+  user: agent_one
+)
+puts "Campaigns done!"
+
+puts "Creating forms..."
 form_one = Form.create!(
   title: 'Welcome to Marina One Residences',
   campaign: campaign_one
 )
+puts "Forms done!"
 
 lead_one = Lead.create!(
   name: 'Zohan',
