@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_22_040533) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_22_081110) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_040533) do
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
+  create_table "form_questions", force: :cascade do |t|
+    t.bigint "form_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["form_id"], name: "index_form_questions_on_form_id"
+    t.index ["question_id"], name: "index_form_questions_on_question_id"
+  end
+
   create_table "forms", force: :cascade do |t|
     t.string "title"
     t.bigint "campaign_id", null: false
@@ -58,16 +67,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_040533) do
     t.bigint "question_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.float "sentiment_value"
     t.index ["question_id"], name: "index_options_on_question_id"
   end
 
   create_table "questions", force: :cascade do |t|
     t.string "title"
     t.string "format"
-    t.bigint "form_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["form_id"], name: "index_questions_on_form_id"
   end
 
   create_table "responses", force: :cascade do |t|
@@ -77,6 +85,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_040533) do
     t.datetime "updated_at", null: false
     t.index ["form_id"], name: "index_responses_on_form_id"
     t.index ["lead_id"], name: "index_responses_on_lead_id"
+  end
+
+  create_table "user_questions", force: :cascade do |t|
+    t.boolean "compulsory", default: false
+    t.bigint "user_id", null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["question_id"], name: "index_user_questions_on_question_id"
+    t.index ["user_id"], name: "index_user_questions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -97,9 +115,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_22_040533) do
   add_foreign_key "answers", "questions"
   add_foreign_key "answers", "responses"
   add_foreign_key "campaigns", "users"
+  add_foreign_key "form_questions", "forms"
+  add_foreign_key "form_questions", "questions"
   add_foreign_key "forms", "campaigns"
   add_foreign_key "options", "questions"
-  add_foreign_key "questions", "forms"
   add_foreign_key "responses", "forms"
   add_foreign_key "responses", "leads"
+  add_foreign_key "user_questions", "questions"
+  add_foreign_key "user_questions", "users"
 end
