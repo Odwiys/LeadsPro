@@ -1,1 +1,133 @@
-<h1>LeadsPro WOOHOOO!!!</h1>
+<%# Main container %>
+<div class="container">
+
+<%# Navbar content over here %>
+  <div class="navbar navbar-expand-md navbar-light navbar-lewagon">
+    <div class="container-fluid">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "logo/leadpro.png" %>
+      <% end %>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto"> <!-- Use "mx-auto" to center align the links -->
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to "Home", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Create", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Campaigns", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Reports", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Leads", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Action", "#", class: "dropdown-item" %>
+                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item d-flex">
+              <%= link_to "Home", "#", class: "nav-link" %>
+              <%= link_to "About us", "#", class: "nav-link" %>
+              <%= link_to "Features", "#", class: "nav-link" %>
+              <%= link_to "Pricing", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item d-flex">
+              <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+              <%= link_to "Log in", user_session_path, class: "nav-link rounded-rectangle-button" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+<%# Headline, paragraph & CTAs %>
+  <div class="container text-center p-5">
+      <h2><strong>Smarter leads. Better conversion.</strong></h2>
+      <br>Powerful, self-serve product and growth analytics to help you convert, engage, and retain more clients.
+      <br>Trusted by over 4,000 startups.</p>
+      <button type="button" class="btn btn-light">Demo</button>
+      <button type="button" class="btn btn-primary">Sign up</button>
+  </div>
+
+<%# Product mock image here %>
+  <div class="container">
+    <div class="row">
+      <img src= "https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExZDRueTByeGh3ZGloajJnOXprbXR6YzloajNldnF2azBhcmV2eHRvNSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/3oz8xCjvZ2YwudODbW/giphy.gif" class="img-fluid">
+    </div>
+  </div>
+
+
+  <div class="container mt-5">
+    <div class="row row-cols-5 p-3">
+
+      <div class="col">
+        <%= image_tag("clients/1.png", class: "img-fluid smaller-image") %>
+      </div>
+
+      <div class="col">
+        <%= image_tag("clients/2.png", class: "img-fluid smaller-image") %>
+      </div>
+
+      <div class="col">
+        <%= image_tag("clients/3.png", class: "img-fluid smaller-image") %>
+      </div>
+
+      <div class="col">
+        <%= image_tag("clients/4.png", class: "img-fluid smaller-image") %>
+      </div>
+
+      <div class="col">
+        <%= image_tag("clients/5.png", class: "img-fluid .smaller-image") %>
+      </div>
+
+    </div>
+  </div>
+
+
+
+
+
+<%# Headline & a short liner %>
+  <div class="container text-center mt-5 p-5">
+      <h5><strong>Features</strong></h5>
+      <h2><strong>Analytics that feels like it’s from the future</strong></h2>
+      <p>Powerful, self-serve product and growth analytics to help you convert, engage, and retain more users. Trusted by over 4,000 startups.</p>
+  </div>
+
+<%# Something here and 3 short bulletin points here %>
+  <div class="container justify-content-center p-5">
+    <div class="row m-3">
+      <h2>Something here</h2>
+      <div class="col-md-6">
+        <p>In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content.
+        </p>
+      </div>
+
+      <div class="col-md-6">
+        <p><i class="fa-regular fa-circle-check" style="color: #69cce3;"></i> Leverage automation to move fast<p>
+        <p><i class="fa-regular fa-circle-check" style="color: #69cce3;"></i> Seamless interface with 24/7 support<p>
+        <p><i class="fa-regular fa-circle-check" style="color: #69cce3;"></i> Automate and close leads faster<p>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>
