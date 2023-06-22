@@ -7,5 +7,4 @@ class Campaign < ApplicationRecord
 
   validates :name, presence: true, uniqueness: true
   validates :details, presence: true
-  validates :start_date, presence: true
 end
