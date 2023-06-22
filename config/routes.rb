@@ -8,6 +8,9 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create index]
 
   resources :campaigns
+  resources :leads
+  
     # resources :forms, only: %i[index new create show]
   # end
+  get "dashboard", to: "pages#dashboard"
 end

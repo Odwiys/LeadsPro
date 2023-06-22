@@ -3,6 +3,15 @@ class CampaignsController < ApplicationController
 
 	def index
 	  @campaigns = Campaign.all
+
+	  if params[:query].present?
+		@campaigns = @campaigns.where("title ILIKE ?", "%#{params[:query]}%")
+	  end
+  
+	  respond_to do |format|
+		format.html # Follow regular flow of Rails
+		format.text { render partial: "campaigns/show", locals: {campaigns: @campaigns}, formats: [:html] }
+	  end
 	end
   
 	def new
