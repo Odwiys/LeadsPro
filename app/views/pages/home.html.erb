@@ -200,5 +200,13 @@
 <%# End of main container %>
 </div>
 
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const menuWrapper = document.getElementById("menuWrapper");
+    const navbarToggler = document.querySelector(".navbar-toggler");
 
-<%# Made tweaks %>
+    navbarToggler.addEventListener("click", function() {
+      menuWrapper.classList.toggle("open");
+    });
+  });
+</script>
