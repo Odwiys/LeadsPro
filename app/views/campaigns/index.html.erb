@@ -24,36 +24,36 @@
         <div class="col-3">
           <div class="p-2 fs-5">Campaign Name</div>
         </div>
-        <div class="col-3">
+        <div class="col-4">
           <div class="p-2 fs-5">Date Created</div>
         </div>
         <div class="col-3">
           <div class="p-2 fs-5">URL</div>
         </div>
-        <div class="col-3">
+        <div class="col-2">
           <div class="p-2 fs-5">Actions</div>
         </div>
       </div>
     </div>
-    <div class="container py-2 border border-dark">
-      <div class="row g-2">
-        <div class="col-3">
-        <% @campaigns.each do |campaign| %>
-          <div class="p-2 mt-1"><%= link_to campaign.name, campaign_path(campaign), class: "text-dark text-decoration-none" %></div>
-        </div>
-        <div class="col-3">
-          <div class="p-2 mt-1">01-01-2023</div>
-        </div>
-        <div class="col-3">
-          <div class="p-2 mt-1">URL</div>
-        </div>
-        <div class="col-3">
-          <div class="p-2"><button class="btn btn-secondary" type="submit">EDIT</button> <button class="btn btn-secondary" type="submit">VIEW</button></div>
-        </div>
+    <div class="box overflow-auto p-3" style="height: 900px;"><% @campaigns.each do |campaign| %>
+      <div class="col-12">
+        <div class="row g-2 pt-2">
+          <div class="col-3 box">
+            <div class="p-2 mt-1"><%= link_to campaign.name, campaign_path(campaign), class: "text-dark text-decoration-none" %></div>
+          </div>
+          <div class="col-4">
+            <div class="p-2 mt-1">01-01-2023</div>
+          </div>
+          <div class="col-3">
+            <div class="p-2 mt-1">URL</div>
+          </div>
+          <div class="col-2">
+            <div class="p-2"><button class="btn btn-secondary" type="submit">EDIT</button> <button class="btn btn-secondary" type="submit">VIEW</button></div>
+          </div>
         <% end %>
       </div>
     </div>
-  </div>
+  </div>  
   <div class="mt-4 position-absolute">
     <div class="">
       <button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Create New</button> <button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Load More</button>

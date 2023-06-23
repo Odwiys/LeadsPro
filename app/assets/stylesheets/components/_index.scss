@@ -6,7 +6,7 @@
 
 .form-control {
     border: 2;
-	width: 15rem;
+	width: 378px;
 }
 
 .btn-secondary {
@@ -15,12 +15,9 @@
 	border-radius: 14px;
 }
 
-.border {
+.box {
+	border: 1px solid rgba(00, 00, 00, 0.2);
 	border-radius: 6px;
-}
-
-.border-dark {
-	opacity: 0.5;
 }
 
 .position-relative {
@@ -34,7 +31,19 @@
 }
 
 .position-message {
-	position: absolute;
+	position: fixed;
 	bottom: 30px;
 	right: 400px;
 }
+
+.line-div{
+	flex: 1;
+	padding: 10px;
+  }
+  
+  .the-line{
+	height: 50%;
+	border-bottom:1px solid #bbb;
+}
+
+.flex-parent{display:flex;}
