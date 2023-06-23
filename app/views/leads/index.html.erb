@@ -34,7 +34,7 @@
           <div class="p-2 fs-5">Phone No.</div>
         </div>
         <div class="col-1">
-          <div class="p-2 fs-5">Rank</div>
+          <div class="p-2 fs-5"></div>
         </div>
       </div>
     </div>
@@ -42,10 +42,19 @@
       <div class="col-12">
         <div class="row g-2">
           <div class="col-1">
-            <div class="p-2 mt-1"><%= lead.id %></div>
+            <div class="p-2 t-1"><%= lead.rating%></div>
           </div>
           <div class="col-3 box">
-            <div class="p-2 mt-1"><%= link_to lead.name, lead_path(lead), class: "text-dark text-decoration-none" %></div>
+            <div class="p-2 mt-1"> <a href="<%= lead_path(lead) %>" class="text-dark text-decoration-none popup-link"><%= lead.name %></a>
+
+              <div class="popup-overlay">
+                <div class="popup-content">
+                  <h2><%= lead.name %></h2>
+                  <%= lead.email %>
+                  <button class="close-button">Close</button>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-4">
             <div class="p-2 mt-1"><%= lead.email%></div>
@@ -54,7 +63,7 @@
             <div class="p-2 t-1"><%= lead.phone_number%></div>
           </div>
           <div class="col-1">
-            <div class="p-2"><button class="btn btn-secondary" type="submit">RANK</button></div>
+            <div class="p-2 toggler-wrapper style-2"><%= check_box_tag "Message", 'yes'%></div>
           </div>
       <% end %>
       </div>
