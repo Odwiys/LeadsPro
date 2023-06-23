@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :leads
 
   resources :campaigns do
-    resources :forms, only: %i[new create]
+    resources :forms, only: %i[new create edit]
   end
 
   get "dashboard", to: "pages#dashboard"
