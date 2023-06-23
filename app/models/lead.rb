@@ -11,8 +11,8 @@ class Lead < ApplicationRecord
   def analyse_sentiment
     # response.answers
     # - answer.sentiment
-    self.rating = 2
-    save!
+    # self.rating = 2
+    # save!
 
     # rating = 0.0
     # response.answers.each do |answer|
