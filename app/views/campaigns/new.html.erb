@@ -1,0 +1,35 @@
+<%# Main container   %>
+<div class="container">
+  <div class="row">
+    <h1>Create a new campaign</h1>
+    <p>Please input campaign name, start date, end date, and details.</p>
+  </div>
+
+  <div class="row">
+  <%# Simple form here %>
+    <%= simple_form_for @campaign do |f| %>
+      <%= f.input :name %>
+
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <input name="campaign[start_date]" type="text" class="form-control m-2  mb-3" id="campaign_start_date" placeholder="Campaign start date" readonly>
+          <div id="inline_cal_from"></div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <input name="campaign[end_date]" type="text" class="form-control m-2  mb-3" id="campaign_end_date" placeholder="Campaign end date" readonly>
+          <div id="inline_cal_to"></div>
+        </div>
+      </div>
+
+      <%= f.input :details %>
+      <%= f.submit "Next", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+
+</div>
+
+
+<%# DO NOT TOUCH: Script of date picker %>
+<script src="/rome.js"></script>
+<script src="/jquery-3.3.1.min.js"></script>
+<script src="/main.js"></script>
