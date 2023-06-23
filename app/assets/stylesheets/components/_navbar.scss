@@ -1,6 +1,5 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+  justify-content: space-center;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -9,4 +8,22 @@
 
 .navbar-lewagon .navbar-brand img {
   width: 40px;
+}
+
+.rounded-rectangle-button {
+  display: inline-block;
+  padding: 8px 16px;
+  border-radius: 4px;
+  background-color: #2564AF;
+  color: white;
+  text-decoration: none;
+}
+
+.rounded-rectangle-button:hover {
+  background-color: #1A4B85;
+}
+
+.rounded-rectangle-button:focus,
+.rounded-rectangle-button:active {
+  background-color: #0E3060;
 }
