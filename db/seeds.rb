@@ -34,7 +34,7 @@ Lead.destroy_all
 
 p "destroying User"
 User.destroy_all
-
+puts "Users: #{User.count}"
 puts "Database clean!"
 
 # HEREE WEEE GOOOOOOOO
@@ -281,182 +281,182 @@ puts "Forms done!"
 puts 'Creating FormQuestions for all forms'
 
 form_question_1 = FormQuestion.create!(
-  form_id: form_one.id,
-  question_id: question_one.id,
+  form: form_one,
+  question: question_one,
 )
 
 form_question_2 = FormQuestion.create!(
-  form_id: form_one.id,
+  form: form_one,
   question_id: question_two.id,
 )
 
 form_question_3 = FormQuestion.create!(
-  form_id: form_one.id,
+  form: form_one,
   question_id: question_three.id,
 )
 
 form_question_4 = FormQuestion.create!(
-  form_id: form_one.id,
+  form: form_one,
   question_id: question_four.id,
 )
 
 form_question_5 = FormQuestion.create!(
-  form_id: form_one.id,
+  form: form_one,
   question_id: question_five.id,
 )
 
 form_question_6 = FormQuestion.create!(
-  form_id: form_one.id,
+  form: form_one,
   question_id: question_six.id,
 )
 
 form_question_7 = FormQuestion.create!(
-  form_id: form_two.id,
+  form: form_two,
   question_id: question_one.id,
 )
 
 form_question_8 = FormQuestion.create!(
-  form_id: form_two.id,
+  form: form_two,
   question_id: question_two.id,
 )
 
 form_question_9 = FormQuestion.create!(
-  form_id: form_two.id,
+  form: form_two,
   question_id: question_three.id,
 )
 
 form_question_10 = FormQuestion.create!(
-  form_id: form_two.id,
+  form: form_two,
   question_id: question_four.id,
 )
 
 form_question_11 = FormQuestion.create!(
-  form_id: form_two.id,
+  form: form_two,
   question_id: question_five.id,
 )
 
 form_question_12 = FormQuestion.create!(
-  form_id: form_two.id,
+  form: form_two,
   question_id: question_six.id,
 )
 
 form_question_13 = FormQuestion.create!(
-  form_id: form_three.id,
+  form: form_three,
   question_id: question_one.id,
 )
 
 form_question_14 = FormQuestion.create!(
-  form_id: form_three.id,
+  form: form_three,
   question_id: question_two.id,
 )
 
 form_question_15 = FormQuestion.create!(
-  form_id: form_three.id,
+  form: form_three,
   question_id: question_three.id,
 )
 
 form_question_16 = FormQuestion.create!(
-  form_id: form_three.id,
+  form: form_three,
   question_id: question_four.id,
 )
 
 form_question_17 = FormQuestion.create!(
-  form_id: form_three.id,
+  form: form_three,
   question_id: question_five.id,
 )
 
 form_question_18 = FormQuestion.create!(
-  form_id: form_three.id,
+  form: form_three,
   question_id: question_six.id,
 )
 
 form_question_19 = FormQuestion.create!(
-  form_id: form_four.id,
+  form: form_four,
   question_id: question_one.id,
 )
 
 form_question_20 = FormQuestion.create!(
-  form_id: form_four.id,
+  form: form_four,
   question_id: question_two.id,
 )
 
 form_question_21 = FormQuestion.create!(
-  form_id: form_four.id,
+  form: form_four,
   question_id: question_three.id,
 )
 
 form_question_22 = FormQuestion.create!(
-  form_id: form_four.id,
+  form: form_four,
   question_id: question_four.id,
 )
 
 form_question_23 = FormQuestion.create!(
-  form_id: form_four.id,
+  form: form_four,
   question_id: question_five.id,
 )
 
 form_question_24 = FormQuestion.create!(
-  form_id: form_four.id,
+  form: form_four,
   question_id: question_six.id,
 )
 
 form_question_25 = FormQuestion.create!(
-  form_id: form_five.id,
+  form: form_five,
   question_id: question_one.id,
 )
 
 form_question_26 = FormQuestion.create!(
-  form_id: form_five.id,
+  form: form_five,
   question_id: question_two.id,
 )
 
 form_question_27 = FormQuestion.create!(
-  form_id: form_five.id,
+  form: form_five,
   question_id: question_three.id,
 )
 
 form_question_28 = FormQuestion.create!(
-  form_id: form_five.id,
+  form: form_five,
   question_id: question_four.id,
 )
 
 form_question_29 = FormQuestion.create!(
-  form_id: form_five.id,
+  form: form_five,
   question_id: question_five.id,
 )
 
 form_question_30 = FormQuestion.create!(
-  form_id: form_five.id,
+  form: form_five,
   question_id: question_six.id,
 )
 
 form_question_31 = FormQuestion.create!(
-  form_id: form_six.id,
+  form: form_six,
   question_id: question_one.id,
 )
 
 form_question_32 = FormQuestion.create!(
-  form_id: form_six.id,
+  form: form_six,
   question_id: question_two.id,
 )
 
 form_question_33 = FormQuestion.create!(
-  form_id: form_six.id,
+  form: form_six,
   question_id: question_three.id,
 )
 
 form_question_34 = FormQuestion.create!(
-  form_id: form_six.id,
+  form: form_six,
   question_id: question_four.id,
 )
 
 form_question_35 = FormQuestion.create!(
-  form_id: form_six.id,
+  form: form_six,
   question_id: question_five.id,
 )
 
 form_question_36 = FormQuestion.create!(
-  form_id: form_six.id,
+  form: form_six,
   question_id: question_six.id,
 )
 
@@ -474,7 +474,7 @@ Form.all.each do |form|
       rating: rand(0.0..10.0).round(1)
     )
 
-    response = Response.create!(form: form, lead: lead)
+    response = Response.create!(form:, lead:)
 
     form.questions.each do |question|
       answer = Answer.new
@@ -519,3 +519,11 @@ end
 #   lead_id: form_six,
 #   form_id: question_six,
 # )
+
+
+# forms = Form.all
+# forms.each do |form|
+#   if form.answers.length.zero?
+#     pp "Missing answers for #{form.id}"
+#   end
+# end
