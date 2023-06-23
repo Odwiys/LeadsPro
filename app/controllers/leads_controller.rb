@@ -1,25 +1,22 @@
 class LeadsController < ApplicationController
+  #   def create
+  #     @response = Response.find(params[:response_id])
+  #     @lead = Lead.new(lead_params) # except :rating
 
-#   def create
-#     @response = Response.find(params[:response_id])
-#     @lead = Lead.new(lead_params) # except :rating
-
-#     if @lead.save
-#     else
-#     end
+  #     if @lead.save
+  #     else
+  #   end
 
   before_action :set_leads, only: %i[show]
 
   def index
     @leads = Lead.order(rating: :desc)
 
-    if params[:query].present?
-      @leadss = @leads.where("title ILIKE ?", "%#{params[:query]}%")
-    end
+    @leadss = @leads.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "leadss/show", locals: {leadss: @leadss}, formats: [:html] }
+      format.text { render partial: "leadss/show", locals: { leadss: @leadss }, formats: [:html] }
     end
   end
 
@@ -29,8 +26,14 @@ class LeadsController < ApplicationController
   end
 
   def create
-    @leads = leads.new(leads_params)
-    @leads.user = current_user
+    @lead = Lead.new(leads_params)
+    @response = Response.find(params[:response_id])
+    @lead.response = @response
+    @form = Form.find(params[:form_id])
+    @response.form = @form
+    @campaign = Campaign.find(params[:campaign_id])
+    @form.campaign = @campaign
+    @campaign.user = current_user
 
     if @leads.save
       redirect_to leads_path
@@ -49,6 +52,6 @@ class LeadsController < ApplicationController
   end
 
   def leads_params
-    params.require(:leads).permit(:name, :start_date, :end_date, :details)
+    params.require(:leads).permit(:name, :email, :phone_number)
   end
 end

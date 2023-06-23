@@ -4,13 +4,11 @@ class CampaignsController < ApplicationController
   def index
     @campaigns = Campaign.all
 
-    if params[:query].present?
-      @campaigns = @campaigns.where("title ILIKE ?", "%#{params[:query]}%")
-    end
+    @campaigns = @campaigns.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "campaigns/show", locals: {campaigns: @campaigns}, formats: [:html] }
+      format.text { render partial: "campaigns/show", locals: { campaigns: @campaigns }, formats: [:html] }
     end
   end
 
@@ -24,7 +22,7 @@ class CampaignsController < ApplicationController
     @campaign.user = current_user
 
     if @campaign.save
-      redirect_to campaigns_path
+      redirect_to new_campaign_form_path(@campaign)
     else
       render :new, status: :unprocessable_entity
     end

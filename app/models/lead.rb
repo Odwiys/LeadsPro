@@ -22,7 +22,6 @@ class Lead < ApplicationRecord
     # rating
     # # return <Float
 
-
     # if multiple choice, hard code sentiment points
     # else, run chatgpt analysis
   end
