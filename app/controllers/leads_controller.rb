@@ -1,4 +1,13 @@
 class LeadsController < ApplicationController
+
+#   def create
+#     @response = Response.find(params[:response_id])
+#     @lead = Lead.new(lead_params) # except :rating
+
+#     if @lead.save
+#     else
+#     end
+
 	before_action :set_leads, only: %i[show]
 
 	def index
@@ -43,3 +52,4 @@ class LeadsController < ApplicationController
 	end
   end
   
+
