@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () {
 	const closeButton = document.querySelectorAll(".close-button");
   
 	popupLinks.forEach((link) {
-	  link.addEventListener("click", (event) {
+	  link.addEventListener("click", () {
 		event.preventDefault();
 		const popupOverlay = this.parentNode.querySelector(".popup-overlay");
 		popupOverlay.style.display = "block";
