@@ -10,7 +10,7 @@ class LeadsController < ApplicationController
   before_action :set_leads, only: %i[show]
 
   def index
-    @leads = Lead.all
+    @leads = Lead.order(rating: :desc)
 
     @leadss = @leads.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
 
@@ -48,7 +48,7 @@ class LeadsController < ApplicationController
   private
 
   def set_leads
-    @leads = leads.find(params[:id])
+    @lead = Lead.find(params[:id])
   end
 
   def leads_params
