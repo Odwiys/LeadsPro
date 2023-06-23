@@ -1,39 +1,30 @@
-<div class="container">
-  <div class="row">
-    <h1 class="text-center mb-4">Listings</h1>
+<div class="container border border-dark rounded-5 shadow-lg p-3 mb-5 mt-4">
+  <div class="campaign-box border border-dark my-5">
+    <div class="d-flex justify-content-center px-2 py-2">
+      <h1><%= @campaign.name.upcase %></h1>
+    </div>
   </div>
-</div>
 
-<div class="container col-6 border border-dark rounded-pill mb-4">
-    <div class="d-flex justify-content-center">
-      <div class="p-2"> Display all Listings</div>
-            <div class="p-2"> | </div>
-      <div class="p-2 flex-grow-2"><%= link_to "Add New Listing", new_listing_path %></div>
-            <div class="p-2"> | </div>
-      <div class="p-2 flex-grow-2"><%= link_to "View Reservations", hosting_path %></div>
+  <div class="ps-5" style="font-size: 30px;">TOTAL LEADS: <u><b><%=Lead.count%></b></u></div>
+  <div class="ps-5 mt-5" style="font-size: 30px;">CAMPAIGN DETAILS</div>
+  <div class="border border-dark my-5 mx-5 shadow-lg p-3 mb-5"><%= @campaign.details.capitalize %></div>
+
+  <div class="ps-5 pb-5">
+    <div class="dates">
+      <div class="start_date pb-5 d-flex align-items-center">
+        <input class="form-control border-dark start_date me-3" type="text" placeholder="start date" style="border border-dark">
+        <span class="fa fa-calendar start_date_calendar" aria-hidden="true "></span>
+      </div>
+
+      <div class="end_date pb-5 d-flex align-items-center  pb-5 d-flex align-items-center">
+        <input class="form-control border-dark end_date me-3" type="text" placeholder="end date">
+        <span class="fa fa-calendar end_date_calendar" aria-hidden="true "></span>
+      </div>
+    </div>
+
+    <div class="campaign-button">
+            <button type="submit" class="btn btn-primary btn-lg">EDIT</button>
     </div>
 </div>
 
-<div class="container justify-content-center d-flex p-4">
-  <div class="display-grid">
-    <% @listings.each do |listing| %>
-      <div class="listings flex-column mx-4 px-2">
-        <div style="position: relative">
-          <% listing.images.each do |image| %>
-            <%= cl_image_tag image.key, style:'object-fit: cover; width: 110%; height: 16vw; border-radius: 12px;'%>
-          <% end %>        
-        </div>
-            <div class="listing-header d-flex align-items-center" style="justify-content: space-between">
-              <h2><%= link_to listing.name, listing_path(listing), class: "text-dark text-decoration-none" %></h2>
-                <div class="listing-rating">
-                  <i class="fa-solid fa-star"></i>
-                  <span>3.9</span>
-                </div>
-            </div>
-              <p><%= listing.location %></p>
-              <p><%= listing.details %></p>
-              <p><b>$<%= listing.price %></b> per night</p>
-      </div>
-    <% end %>
-  </div>
-</div>
+<script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.0/popup.min.js"></script>
