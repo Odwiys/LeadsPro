@@ -1,0 +1,68 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text-center my-5">Leads</h1>
+
+    <div class="d-flex col-auto">
+      <i class="fa-solid fa-magnifying-glass p-2 m-1 opacity-25"></i>
+      <div data-controller="search-leads">
+        <%= form_with url: leads_path, method: :get, html: {class:
+          "mb-4", data: {search_leads_target: "form"}} do |f| %>
+          <%= f.text_field :query,
+                          class: "form-control",
+                          placeholder: "Search...",
+                          value: params[:query],
+                          data: 
+                          {search_leads_target: "input",
+                            action: "keyup->search-leads#update"                     
+                        } %>
+              <% end %>
+              <%# <%= render "show", leads: @leads %> 
+        </div>
+    </div>
+    <div class="container position-relative">
+      <div class="row g-2">
+        <div class="col-1">
+          <div class="p-2 fs-5">No.</div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 fs-5">Name</div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 fs-5">Email</div>
+        </div>
+        <div class="col-4">
+          <div class="p-2 fs-5">Phone No.</div>
+        </div>
+        <div class="col-1">
+          <div class="p-2 fs-5">Rank</div>
+        </div>
+      </div>
+    </div>
+    <div class="container py-2 border border-dark">
+      <div class="row g-2">
+        <div class="col-1">
+        <% @leads.each do |lead| %>
+          <div class="p-2 mt-1"><%= lead.id %></div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 mt-1"><%= link_to lead.name, lead_path(lead), class: "text-dark text-decoration-none" %></div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 mt-1"><%= lead.email%></div>
+        </div>
+        <div class="col-4">
+          <div class="p-2 t-1"><%= lead.phone_number%></div>
+        </div>
+        <div class="col-1">
+          <div class="p-2"><button class="btn btn-secondary" type="submit">RANK</button></div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 position-message">
+    <div class="">
+      <button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Message Leads</button>
+    </div>
+  </div>
+</div>

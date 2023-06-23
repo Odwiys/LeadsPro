@@ -1,2 +1,255 @@
-<h1>LeadsPro WOOHOOO!!!</h1>
 
+<%# Main container %>
+<div class="container">
+<%# Navbar content over here %>
+  <div class="navbar navbar-expand-md navbar-light navbar-lewagon">
+    <div class="container-fluid">
+      <%= link_to "#", class: "navbar-brand" do %>
+        <%= image_tag "logo/leadpro.png", style: "width: 180px;" %>
+      <% end %>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mx-auto">
+          <% if user_signed_in? %>
+            <li class="nav-item active">
+              <%= link_to "Home", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Create", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Campaigns", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Reports", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "Leads", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item dropdown">
+              <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+              <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                <%= link_to "Action", "#", class: "dropdown-item" %>
+                <%= link_to "Another action", "#", class: "dropdown-item" %>
+                <%= link_to "Log out", "#", class: "dropdown-item", data: {turbo_method: :delete} %>
+              </div>
+            </li>
+          <% else %>
+            <li class="nav-item d-flex">
+              <%= link_to "Home", "#", class: "nav-link" %>
+              <%= link_to "About us", "#", class: "nav-link" %>
+              <%= link_to "Features", "#", class: "nav-link" %>
+              <%= link_to "Pricing", "#", class: "nav-link" %>
+            </li>
+            <li class="nav-item d-flex">
+              <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+              <%= link_to "Log in", user_session_path, class: "nav-link rounded-rectangle-button" %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+<%# Headline, paragraph & CTAs %>
+  <div class="container text-center p-5">
+      <h2><strong>Smarter leads. Better conversion.</strong></h2>
+      <br>Powerful, self-serve product and growth analytics to help you convert, engage, and retain more clients.
+      <br>Trusted by over 4,000 startups.</p>
+      <button type="button" class="btn btn-light">Demo</button>
+      <button type="button" class="btn btn-primary">Sign up</button>
+  </div>
+
+<%# Product mock image here %>
+  <div class="container">
+    <div class="row">
+      <img src= "https://www.mockupworld.co/wp-content/uploads/2018/11/animated-ipad-pro-mockup-psd-to-gif.gif" class="img-fluid">
+    </div>
+  </div>
+
+
+  <div class="container mt-5">
+    <div class="row row-cols-5 justify-content-center">
+
+      <div class="col">
+        <%= image_tag("clients/1.png", class: "img-fluid smaller-image") %>
+      </div>
+
+      <div class="col">
+        <%= image_tag("clients/2.png", class: "img-fluid smaller-image") %>
+      </div>
+
+      <div class="col">
+        <%= image_tag("clients/3.png", class: "img-fluid smaller-image") %>
+      </div>
+
+      <div class="col">
+        <%= image_tag("clients/4.png", class: "img-fluid smaller-image") %>
+      </div>
+
+      <div class="col">
+        <%= image_tag("clients/5.png", class: "img-fluid smaller-image") %>
+      </div>
+
+    </div>
+  </div>
+
+
+<%# Headline & a short liner %>
+  <div class="container text-center mt-5 p-5">
+      <h5><strong>Features</strong></h5>
+      <h2><strong>Analytics that feels like it’s from the future</strong></h2>
+      <p>Supercharge with the Game-Changing Power of Chatbot-Powered Lead Qualification. Uncover leads' true potential, engage like never before, and propel your business to new heights.</p>
+  </div>
+
+<%# Summary & bulletin %>
+  <div class="container justify-content-center p-5">
+    <div class="row m-3">
+      <h3>Revolutionize your leads </h3>
+      <div class="col-md-6">
+        <p>By harnessing the power of cutting-edge technology, we have developed a system that leverages chatbot technology and sentiment analysis to help you rank your leads based on quality.</p>
+      </div>
+
+      <div class="col-md-6">
+        <p><i class="fa-regular fa-circle-check" style="color: #69cce3;"></i> Leverage automation to move fast</p>
+        <p><i class="fa-regular fa-circle-check" style="color: #69cce3;"></i> Seamless interface with 24/7 support</p>
+        <p><i class="fa-regular fa-circle-check" style="color: #69cce3;"></i> Automate and close leads faster</p>
+      </div>
+    </div>
+  </div>
+
+
+<%# Footer %>
+  <div class="d-flex flex-column h-100">
+    <footer
+            class="text-center text-lg-start text-white"
+            style="background-color: #45526e"
+            >
+      <!-- Grid container -->
+      <div class="container p-4 pb-0">
+        <!-- Section: Links -->
+        <section class="">
+          <!--Grid row-->
+          <div class="row">
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">
+                Company name
+              </h6>
+              <p>
+              LeadsPro is revolutionizing lead qualification and management with its unique approach.
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none" />
+
+            <!-- Grid column -->
+            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Products</h6>
+              <p>
+                <a class="text-white">BrandFlow</a>
+              </p>
+              <p>
+                <a class="text-white">Bootstrap Angular</a>
+              </p>
+            </div>
+            <!-- Grid column -->
+
+            <hr class="w-100 clearfix d-md-none" />
+
+            <!-- Grid column -->
+            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">
+                Useful links
+              </h6>
+              <p>
+                <a class="text-white">Your Account</a>
+              </p>
+              <p>
+                <a class="text-white">Become an Affiliate</a>
+              </p>
+            </div>
+
+            <!-- Grid column -->
+            <hr class="w-100 clearfix d-md-none" />
+
+            <!-- Grid column -->
+            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
+              <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+              <p><i class="fas fa-home mr-3"></i> New York, NY 10012, US</p>
+              <p><i class="fas fa-envelope mr-3"></i> info@gmail.com</p>
+            </div>
+            <!-- Grid column -->
+          </div>
+          <!--Grid row-->
+        </section>
+        <!-- Section: Links -->
+
+        <hr class="my-3">
+
+        <!-- Section: Copyright -->
+        <section class="p-3 pt-0">
+          <div class="row d-flex align-items-center">
+            <!-- Grid column -->
+            <div class="col-md-7 col-lg-8 text-center text-md-start">
+              <!-- Copyright -->
+              <div class="p-3">
+                © 2023 Copyright
+                <a class="text-white" href="https://mdbootstrap.com/"
+                  >LeadsPro</a
+                  >
+              </div>
+              <!-- Copyright -->
+            </div>
+            <!-- Grid column -->
+
+            <!-- Grid column -->
+            <div class="col-md-5 col-lg-4 ml-lg-0 text-center text-md-end">
+              <!-- Facebook -->
+              <a
+                class="btn btn-outline-light btn-floating m-1"
+                class="text-white"
+                role="button"
+                ><i class="fab fa-facebook-f"></i
+                ></a>
+
+              <!-- Twitter -->
+              <a
+                class="btn btn-outline-light btn-floating m-1"
+                class="text-white"
+                role="button"
+                ><i class="fab fa-twitter"></i
+                ></a>
+
+              <!-- Google -->
+              <a
+                class="btn btn-outline-light btn-floating m-1"
+                class="text-white"
+                role="button"
+                ><i class="fab fa-google"></i
+                ></a>
+
+              <!-- Instagram -->
+              <a
+                class="btn btn-outline-light btn-floating m-1"
+                class="text-white"
+                role="button"
+                ><i class="fab fa-instagram"></i
+                ></a>
+            </div>
+            <!-- Grid column -->
+          </div>
+        </section>
+        <!-- Section: Copyright -->
+      </div>
+      <!-- Grid container -->
+    </footer>
+  </div>
+<%# End of main container %>
+</div>
