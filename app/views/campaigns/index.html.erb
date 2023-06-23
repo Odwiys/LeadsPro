@@ -1,0 +1,62 @@
+<div class="container">
+  <div class="row">
+    <h1 class="text-center my-5">Campaigns</h1>
+
+    <div class="d-flex col-auto">
+      <i class="fa-solid fa-magnifying-glass p-2 m-1 opacity-25"></i>
+      <div data-controller="search-campaigns">
+        <%= form_with url: campaigns_path, method: :get, html: {class:
+          "mb-4", data: {search_campaigns_target: "form"}} do |f| %>
+          <%= f.text_field :query,
+                          class: "form-control",
+                          placeholder: "Search..",
+                          value: params[:query],
+                          data: 
+                          {search_campaigns_target: "input",
+                            action: "keyup->search-campaigns#update"                     
+                        } %>
+              <% end %>
+              <%# <%= render "show", campaigns: @campaigns %> 
+        </div>
+    </div>
+    <div class="container position-relative">
+      <div class="row g-2">
+        <div class="col-3">
+          <div class="p-2 fs-5">Campaign Name</div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 fs-5">Date Created</div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 fs-5">URL</div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 fs-5">Actions</div>
+        </div>
+      </div>
+    </div>
+    <div class="container py-2 border border-dark">
+      <div class="row g-2">
+        <div class="col-3">
+        <% @campaigns.each do |campaign| %>
+          <div class="p-2 mt-1"><%= link_to campaign.name, campaign_path(campaign), class: "text-dark text-decoration-none" %></div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 mt-1">01-01-2023</div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 mt-1">URL</div>
+        </div>
+        <div class="col-3">
+          <div class="p-2"><button class="btn btn-secondary" type="submit">EDIT</button> <button class="btn btn-secondary" type="submit">VIEW</button></div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+  <div class="mt-4 position-absolute">
+    <div class="">
+      <button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Create New</button> <button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Load More</button>
+    </div>
+  </div>
+</div>

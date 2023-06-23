@@ -1,0 +1,29 @@
+<div style="margin-top: 280px">
+  <div id="screen-size" class="d-flex justify-content-center">
+    <div class="row m-5 p-5 border border-dark" style="width: 400px"> 
+      <h1 class="mb-5 text-center">Welcome Back</h1>
+          <h3  class="mb-3 text-left">Log in</h3>
+            <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+              <div class="form-inputs">
+                <%= f.input :email,
+                            required: false,
+                            autofocus: true,
+                            input_html: { autocomplete: "email" } %>
+                <%= f.input :password,
+                            required: false,
+                            input_html: { autocomplete: "current-password" } %>
+                <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+              </div>
+
+            <div class="form-actions d-flex mt-4">
+              <%= f.button :submit, "Log in", class: "btn btn-primary mb-3", style: "width: 376px"%>
+            </div>
+          <% end %>
+          <div class="d-flex justify-content-center">
+            <p>New to LeadsPro? <%= render "devise/shared/links" %></p>
+          </div>
+    </div>
+  </div>
+</div>
+
+
