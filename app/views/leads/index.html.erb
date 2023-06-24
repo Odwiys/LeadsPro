@@ -4,7 +4,7 @@
 
     <div class="d-flex col-auto">
       <i class="fa-solid fa-magnifying-glass p-2 m-1 opacity-25"></i>
-      <div data-controller="search-leads">
+      <div data-controller="search-leads shadow-sm">
         <%= form_with url: leads_path, method: :get, html: {class:
           "mb-4", data: {search_leads_target: "form"}} do |f| %>
           <%= f.text_field :query,
@@ -38,24 +38,72 @@
         </div>
       </div>
     </div>
-    <div class="box overflow-auto p-3" style="height: 900px;"><% @leads.each do |lead| %>
-      <div class="col-12">
-        <div class="row g-2">
-          <div class="col-1">
-            <div class="p-2 t-1"><%= lead.rating%></div>
-          </div>
-          <div class="col-3 box">
-            <div class="p-2 mt-1"> <a href="<%= lead_path(lead) %>" class="text-dark text-decoration-none popup-link"><%= lead.name %></a>
-
-              <div class="popup-overlay">
-                <div class="popup-content">
-                  <h2><%= lead.name %></h2>
-                  <%= lead.email %>
-                  <button class="close-button">Close</button>
+    <div class="box overflow-auto p-3 shadow-sm" style="height: 900px;">
+      <% @leads.each do |lead| %>
+        <div class="col-12">
+          <div class="row g-2">
+            <div class="col-1">
+              <div class="p-2 t-1">
+                <% if lead.rating > 6.66 %>
+                  <i class="fa-solid fa-star"></i> 
+                <% elsif lead.rating > 3.33 %>
+                  <i class="fa-regular fa-star-half-stroke"></i>
+                <% else %>
+                  <i class="fa-regular fa-star"></i>
+                <% end %>
+              </div>
+            </div>
+            <div class="col-3 box">
+              <div class="p-2 mt-1">
+                <a href="#" class="text-dark text-decoration-none popup-link"><%= lead.name %></a>
+                <div class="popup-overlay">
+                  <div class="popup-content">
+                  <div>
+                    <button class="close-button">x</button>
+                  </div>
+                    <h2 class="p-3 text-center mx-auto box mb-3" style="width: 400px;"><%= lead.name %></h2>
+                      <div class="d-flex justify-content-between pt-3">
+                        <h3 class="indiv-font">Email:</h3>       
+                        <div class="px-1 box overflow-auto" style="width: 150px; height: 30px">
+                          <%= lead.email %>
+                        </div>
+                        <h3 class="indiv-font">Phone No:</h3> 
+                        <div class="px-1 box" style="width: 150px;">
+                          <%= lead.phone_number %>
+                      </div>                  
+                    </div>
+                    <h3 class="indiv-font pt-3">Response</h3>
+                    <div class="p-1 box" style="height:150px">
+                      <p>RESPONESE!!!!!!!!!!!!</p>
+                    </div>
+                    <h3 class="indiv-font pt-3">Rating</h3>
+                    <div class="p-1">
+                      <% if lead.rating > 6.66 %>
+                        <i class="mx-2 fa-regular fa-star text-lighter fa-xl"></i>
+                        <i class="mx-2 fa-regular fa-star-half-stroke text-lighter fa-xl"></i>
+                        <i class="mx-2 fa-solid fa-star color-hot fa-xl"></i>
+                      <% elsif lead.rating > 3.33 %>
+                        <i class="mx-2 fa-regular fa-star text-lighter fa-xl"></i>
+                        <i class="mx-2 fa-regular fa-star-half-stroke color-warm fa-xl"></i>
+                        <i class="mx-2 fa-solid fa-star text-lighter fa-xl"></i>
+                      <% else %>
+                        <i class="mx-2 fa-regular fa-star color-cold fa-xl"></i>
+                        <i class="mx-2 fa-regular fa-star-half-stroke text-lighter fa-xl"></i>
+                        <i class="mx-2  fa-solid fa-star text-lighter fa-xl"></i>
+                      <% end %>
+                    </div>
+                    <div class="my-4 message-right">
+                      <button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Message</button>
+                    </div>
+                  </div>
+                </div>
+                <div class="mt-4 position-message">
+                  <div class="">
+                    <button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Message Leads</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
           <div class="col-4">
             <div class="p-2 mt-1"><%= lead.email%></div>
           </div>
@@ -67,11 +115,6 @@
           </div>
       <% end %>
       </div>
-    </div>
-  </div>
-  <div class="mt-4 position-message">
-    <div class="">
-      <button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Message Leads</button>
     </div>
   </div>
 </div>

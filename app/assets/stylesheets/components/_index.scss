@@ -4,6 +4,21 @@
 @import "form_legend_clear";
 @import "navbar";
 
+body {
+	max-width: 1024px;
+	margin: 0 auto;
+}
+
+.background {
+  background-image: url("background.svg");
+  background-size: cover;
+  background-color: #2564AF;
+}
+
+.welcome-height {
+  transform: translateY(50%);
+}
+
 .form-control {
     border: 2;
 	width: 378px;
@@ -18,6 +33,22 @@
 .box {
 	border: 1px solid rgba(00, 00, 00, 0.2);
 	border-radius: 6px;
+}
+
+.color-hot {
+  color: #05366e;
+}
+
+.color-warm {
+  color: #1a89ff;
+}
+
+.color-cold {
+  color: #10e7ff;
+}
+
+.text-lighter {
+  opacity: 0.2;
 }
 
 .position-relative {
@@ -48,6 +79,10 @@
 
 .flex-parent{display:flex;}
 
+.popup-link {
+  cursor: pointer;
+  }
+
 .popup-overlay {
 	display: none;
 	position: fixed;
@@ -58,20 +93,43 @@
 	background-color: rgba(0, 0, 0, 0.5);
   }
   
-  .popup-content {
+.popup-content {
 	position: fixed;
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: #fff;
-	padding: 20px;
-  }
-  
-  .close-button {
-	display: block;
-	margin-top: 10px;
-  }
+	background-color: white;
+	padding: 30px;
+  margin: 20px;
+  border-radius: 6px;
+  height: 580px;
+  width: 650px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
 
+.close-button {
+  position: fixed;
+  left: 600px;
+  top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  color: rgb(173, 173, 173);
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 30px;
+  transition: 300ms;
+}
+
+.close-button:hover {
+  color: black;
+}
+
+.indiv-font{
+  font-size: 20px;
+}
+
+.message-right {
+  position: fixed;
+  right: 30px;
+}
 // Date picker css here:
 
 .rd-container {

@@ -9,3 +9,24 @@ application.register("hello", HelloController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+document.addEventListener("DOMContentLoaded", () => {
+	const popupLeads = document.querySelectorAll(".popup-link");
+	const closeButton = document.querySelectorAll(".close-button");
+  
+	popupLeads.forEach((lead) => {
+	  lead.addEventListener("click", (event) => {
+		event.preventDefault();
+		const popupOverlay = lead.parentNode.querySelector(".popup-overlay");
+		popupOverlay.style.display = "block";
+	  });
+	});
+  
+	closeButton.forEach((button) => {
+	  button.addEventListener("click", () => {
+		const popupOverlay = button.closest(".popup-overlay");
+		popupOverlay.style.display = "none";
+	  });
+	});
+  });  
+  
