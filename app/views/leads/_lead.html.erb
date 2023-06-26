@@ -4,11 +4,11 @@
 		<div class="col-1">
 			<div class="p-2 t-1">
 			<% if lead.rating > 6.66 %>
-				<i class="fa-solid fa-star"></i> 
+				<i class="fa-solid fa-star text-primary"></i> 
 			<% elsif lead.rating > 3.33 %>
-				<i class="fa-regular fa-star-half-stroke"></i>
+				<i class="fa-regular fa-star-half-stroke text-primary"></i>
 			<% else %>
-				<i class="fa-regular fa-star"></i>
+				<i class="fa-regular fa-star text-primary"></i>
 			<% end %>
 			</div>
 		</div>
@@ -42,9 +42,9 @@
 		<div>
 			<button class="close-button" data-action="click->popup#close">x</button>
 		</div>
-		
+
 		<h2 class="p-3 text-center mx-auto box mb-3" style="width: 400px;"><%= lead.name %></h2>
-			
+		
 		<div class="d-flex justify-content-between pt-3">
 			<h3 class="indiv-font">Email:</h3>
 			<div class="px-1 box overflow-auto" style="width: 150px; height: 30px">
@@ -61,7 +61,7 @@
 		<div class="p-1 box" style="height:150px">
 			<p>RESPONESE!!!!!!!!!!!!</p>
 		</div>
-
+		
 		<h3 class="indiv-font pt-3">Rating</h3>
 		<div class="p-1">
 			<% if lead.rating > 6.66 %>
@@ -78,7 +78,6 @@
 				<i class="mx-2  fa-solid fa-star text-lighter fa-xl"></i>
 			<% end %>
 		</div>
-
 		<div class="my-4 message-right">
 			<button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Message</button>
 		</div>
