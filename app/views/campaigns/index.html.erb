@@ -11,12 +11,12 @@
                           class: "form-control",
                           placeholder: "Search..",
                           value: params[:query],
-                          data: 
+                          data:
                           {search_campaigns_target: "input",
-                            action: "keyup->search-campaigns#update"                     
+                            action: "keyup->search-campaigns#update"
                         } %>
               <% end %>
-              <%# <%= render "show", campaigns: @campaigns %> 
+              <%# <%= render "show", campaigns: @campaigns %>
         </div>
     </div>
     <div class="container position-relative">
@@ -53,7 +53,12 @@
         <% end %>
       </div>
     </div>
-  </div>  
+  </div>
+
+    <div class="box overflow-auto p-3 shadow-sm" style="height: 900px;">
+      <%= render @leads %>
+    </div>
+
   <div class="mt-4 position-absolute">
     <div class="">
       <button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Create New</button>

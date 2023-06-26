@@ -16,7 +16,7 @@ class LeadsController < ApplicationController
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
-      format.text { render partial: "leadss/show", locals: { leadss: @leadss }, formats: [:html] }
+      format.text { render partial: "leads/show", locals: { leads: @leads }, formats: [:html] }
     end
   end
 

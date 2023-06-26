@@ -3,11 +3,10 @@
     <div class="d-flex justify-content-center px-2 py-2">
       <h1><%= @campaign.name.upcase %></h1>
     </div>
-  </div>
 
-  <div class="ps-5" style="font-size: 30px;">TOTAL LEADS: <u><b><%=Lead.count%></b></u></div>
-  <div class="ps-5 mt-5" style="font-size: 30px;">CAMPAIGN DETAILS</div>
-  <div class="border border-dark my-5 mx-5 shadow-lg p-3 mb-5"><%= @campaign.details.capitalize %></div>
+    <div class="ps-5" style="font-size: 30px;">TOTAL LEADS: <u><b><%=Lead.count%></b></u></div>
+    <div class="ps-5 mt-5" style="font-size: 30px;">CAMPAIGN DETAILS</div>
+    <div class="border border-dark my-5 mx-5 shadow-lg p-3 mb-5"><%= @campaign.details.capitalize %></div>
 
   <div class="ps-5 pb-5">
     <div class="dates">
@@ -23,8 +22,10 @@
     </div>
 
     <div class="campaign-button">
-            <button type="submit" class="btn btn-primary btn-lg">EDIT</button>
+      <button type="submit" class="btn btn-primary btn-lg">EDIT</button>
     </div>
+  </div>
 </div>
+
 
 <script src="https://cdn.jsdelivr.net/npm/@simondmc/popup-js@1.4.0/popup.min.js"></script>
