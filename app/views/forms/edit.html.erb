@@ -21,15 +21,22 @@
           <input class="form-control string required disabled default-value" value="Lead will input answer here" disabled="disabled" type="text" name="lead[name]" id="lead_name">
         </div>
       <% end %>
-      <div class="border border-primary" data-controller="choose-previous-questions">
+      <div data-controller="choose-previous-questions">
         <p>Add a question (optional)</p>
-        <div class="border border-primary" >
-          <div data-action="click->choose-previous-questions#test">
-            STUFF 1
+        <div class="border rounded" >
+          <div class="rounded form-control string required disabled default-value" data-action="click->choose-previous-questions#popupQuestions">
+            Choose from previous questions
+            <input id="tom-select-it" />
+            <link rel="stylesheet" href="/css/tom-select.default.css">
+            <script src="/js/tom-select.complete.js"></script>
+            <script>
+            var settings = {};
+            new TomSelect('#tom-select-it',settings);
+            </script>
           </div>
 
-          <div>
-            STUFF 2
+          <div class="rounded form-control string required disabled default-value">
+            Create a new question
           </div>
           <%# click choose from previous questions %>
 
