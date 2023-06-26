@@ -1,0 +1,29 @@
+<%# Navbar content over here %>
+<div class="navbar" data-controller="navbar">
+  <div class="container-fluid justify-content-end">
+    <i class="fa fa-bars fa-2x" data-action="click->navbar#openMenu"></i>
+  </div>
+
+  <div class="slider-menu-wrapper" data-navbar-target="menu">
+    <div class="menu-content">
+      <i class="fa fa-times fa-2x" data-action="click->navbar#closeMenu"></i>
+
+      <div class="menu-container">
+        <%= button_to "Create", new_campaign_path, method: :get, class: "btn btn-info btn-create" %>
+        <ul class="menu-items">
+          <li><%= button_to "Home", root_path, method: :get, class: "btn btn-light" %></li>
+          <li><%= button_to "Campaigns", campaigns_path, method: :get, class: "btn btn-light" %></li>
+          <li><%= button_to "Reports", "#", class: "btn btn-light" %></li>
+          <li><%= button_to "Leads", "#", class: "btn btn-light" %></li>
+          <li>
+            <% if user_signed_in? %>
+              <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light", form: { data: { "turbolinks-action": "replace", "turbolinks-frame": "_top" } } %>
+            <% else %>
+              <%= button_to "Log out", root_path, class: "btn btn-light" %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
