@@ -5,7 +5,7 @@
     <div class="d-flex col-auto">
       <i class="fa-solid fa-magnifying-glass p-2 m-1 opacity-25"></i>
       <div data-controller="search-leads shadow-sm">
-        <%= form_with url: leads_path, method: :get, html: {class:
+        <%= form_with url: campaign_leads_path, method: :get, html: {class:
           "mb-4", data: {search_leads_target: "form"}} do |f| %>
           <%= f.text_field :query,
                           class: "form-control",
