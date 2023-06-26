@@ -4,10 +4,10 @@
 @import "form_legend_clear";
 @import "navbar";
 
-body {
-	max-width: 1024px;
-	margin: 0 auto;
-}
+// body {
+// 	max-width: 1024px;
+// 	margin: 0 auto;
+// }
 
 .background {
   background-image: url("background.svg");
@@ -19,16 +19,16 @@ body {
   transform: translateY(50%);
 }
 
-.form-control {
-    border: 2;
-	width: 378px;
-}
+// .form-control {
+//     border: 2;
+// 	width: 378px;
+// }
 
-.btn-secondary {
-	border: 0;
-	background-color: grey;
-	border-radius: 14px;
-}
+// .btn-secondary {
+// 	border: 0;
+// 	background-color: grey;
+// 	border-radius: 14px;
+// }
 
 .box {
 	border: 1px solid rgba(00, 00, 00, 0.2);
@@ -51,22 +51,6 @@ body {
   opacity: 0.2;
 }
 
-.position-relative {
-	position: relative;
-}
-
-.position-absolute {
-	position: absolute;
-	bottom: 30px;
-	right: 35px;
-}
-
-.position-message {
-	position: fixed;
-	bottom: 30px;
-	right: 400px;
-}
-
 .line-div{
 	flex: 1;
 	padding: 10px;
@@ -84,14 +68,23 @@ body {
   }
 
 .popup-overlay {
-	display: none;
 	position: fixed;
 	top: 0;
 	left: 0;
 	width: 100%;
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: scale(2);
+  pointer-events: none;
+  transition: 300ms;
+  
+  &.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
   }
+}
   
 .popup-content {
 	position: fixed;
