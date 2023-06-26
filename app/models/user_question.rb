@@ -6,4 +6,9 @@ class UserQuestion < ApplicationRecord
     where(user:, compulsory: true)
       .map(&:question)
   end
+
+  def self.join_questions_for(user)
+    where(user:, compulsory: true || false)
+      .map(&:question)
+  end
 end

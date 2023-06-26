@@ -52,9 +52,77 @@ color: black;
 
 .message-right {
 	position: fixed;
-	right: 30px;
+	right: 20px;
+	bottom: 6px;
 }
 
+.response-size {
+	height: 200px;
+}
+
+.message-box {
+	height: 80px;
+	width: 250px;
+}
+.email-box {
+	width: 150px;
+  height: 30px;
+}
+
+.phone-number-box {
+	width: 150px;
+}
+
+.title-box {
+	width: 400px;
+}
+
+.x-button {
+	position: absolute;
+	left: 580px;
+	top: 30px;
+	border: 1px solid rgba(0, 0, 0, 0);
+	color: rgb(173, 173, 173);
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 30px;
+	transition: 300ms;
+}
+
+.response-size {
+	height: 200px;
+}
+
+.message-box {
+	height: 80px;
+	width: 250px;
+}
+.email-box {
+	width: 150px;
+  height: 30px;
+}
+
+.phone-number-box {
+	width: 150px;
+}
+
+.title-box {
+	width: 400px;
+}
+
+.x-button {
+	position: absolute;
+	left: 580px;
+	top: 30px;
+	border: 1px solid rgba(0, 0, 0, 0);
+	color: rgb(173, 173, 173);
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 30px;
+	transition: 300ms;
+}
+
+.form-control {
+  width: 80%;
+}
 .x-button {
 	position: absolute;
 	left: 580px;
