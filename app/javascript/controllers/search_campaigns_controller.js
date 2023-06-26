@@ -12,7 +12,7 @@ export default class extends Controller {
   update() {
     console.log(this.formTarget);
     console.log(this.formTarget.action);
-    
+
     const url = `${this.formTarget.action}?query=${this.inputTarget.value}`
     fetch(url, {headers: {"Accept": "text/plain"}})
     // i am expecting a response type text, not html
