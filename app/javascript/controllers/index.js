@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChoosePreviousQuestionsController from "./choose_previous_questions_controller"
+application.register("choose-previous-questions", ChoosePreviousQuestionsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -16,3 +19,8 @@ import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
 window.Stimulus = Application.start()
 const context = require.context("./controllers", true, /\.js$/)
 Stimulus.load(definitionsFromContext(context))
+import PopupController from "./popup_controller"
+application.register("popup", PopupController)
+
+import SearchCampaignsController from "./search_campaigns_controller"
+application.register("search-campaigns", SearchCampaignsController)

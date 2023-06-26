@@ -4,7 +4,7 @@
       <%= simple_form_for [@campaign, @form] do |f| %>
         <%= f.input :title %>
         <%= f.submit "Proceed to Form creation", class: "btn btn-primary" %>
-        <%= link_to "Back to Edit campaign", "#", class: "btn btn-secondary" %>
+        <%= link_to "Back to Edit campaign", new_campaign_path, class: "btn btn-secondary" %>
       <% end %>
 
   </div>

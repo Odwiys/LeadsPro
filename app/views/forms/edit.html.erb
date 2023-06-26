@@ -10,14 +10,49 @@
       <% end %>
 
       <%# Current_user compulsory questions %>
+      <%# <h2>Previously saved questions</h2> %>
+
       <% UserQuestion.compulsory_questions_for(current_user).each do |compulsory| %>
         <div class="mb-3 string required disabled lead_name">
           <label class="form-label string required disabled" for="lead_name">
           <%= compulsory.title %> <abbr title="required">*
-          </abbr></label><input class="form-control string required disabled default-value" value="Lead will input answer here" disabled="disabled" type="text" name="lead[name]" id="lead_name">
+          </abbr></label>
+          <input class="delete-checkbox" type="checkbox" data-question-id="<%= compulsory.id %>">
+          <input class="form-control string required disabled default-value" value="Lead will input answer here" disabled="disabled" type="text" name="lead[name]" id="lead_name">
         </div>
       <% end %>
+      <div class="border border-primary" data-controller="choose-previous-questions">
+        <p>Add a question (optional)</p>
+        <div class="border border-primary" >
+          <div data-action="click->choose-previous-questions#test">
+            STUFF 1
+          </div>
+
+          <div>
+            STUFF 2
+          </div>
+          <%# click choose from previous questions %>
+
+          <%# stimulus %>
+            <%# fetch questions via AJAX %>
+            <%# trigger popup (and render questions) %>
+            <%# select question from popup %>
+            <%# trigger attaching questions to form via AJAX %>
+            <%# close popup %>
+            <%# append new question to list %>
+
+          <%# click on create new question%>
+
+          <%# stimulus %>
+            <%# trigger popup with new question partial %>
+            <%# save question via AJAX %>
+            <%# close popup %>
+            <%# append new question to list %>
+        </div>
+      </div>
+
+
       <%#= f.submit "Submit new form!", class: "btn btn-primary" %>
-      <%#= link_to "Back to edit Form Title", new_campaign_form_path(@campaign), class: "btn btn-secondary" %>
+      <%= link_to "Back to edit Form Title", new_campaign_form_path(@campaign), class: "btn btn-secondary" %>
   </div>
 </div>
