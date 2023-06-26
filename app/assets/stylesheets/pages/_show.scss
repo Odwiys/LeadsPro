@@ -1,5 +1,4 @@
 .campaign-box {
-  margin-left: 12rem;
   margin-right: 12rem;
 }
 
@@ -8,4 +7,10 @@
   display: flex;
   justify-content: flex-end;
   width: 100%;
+}
+
+.dates {
+  padding-top: 10%;
+  justify-content: space-around;
+  display: flex;
 }

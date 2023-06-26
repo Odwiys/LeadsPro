@@ -13,14 +13,14 @@
 	transform: scale(2);
 	pointer-events: none;
 	transition: 300ms;
-  
+
   &.active {
     opacity: 1;
     transform: scale(1);
     pointer-events: all;
   }
 }
-  
+
 .popup-content {
 	position: fixed;
 	top: 50%;
@@ -45,7 +45,7 @@
 	font-size: 30px;
 	transition: 300ms;
 }
-  
+
 .close-button:hover {
 color: black;
 }
@@ -53,4 +53,19 @@ color: black;
 .message-right {
 	position: fixed;
 	right: 30px;
+}
+
+.x-button {
+	position: absolute;
+	left: 580px;
+	top: 30px;
+	border: 1px solid rgba(0, 0, 0, 0);
+	color: rgb(173, 173, 173);
+	background-color: rgba(0, 0, 0, 0);
+	font-size: 30px;
+	transition: 300ms;
+}
+
+.form-control {
+  width: 80%;
 }
