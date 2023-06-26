@@ -13,5 +13,8 @@ application.register("hello", HelloController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
+import PopupController from "./popup_controller"
+application.register("popup", PopupController)
+
 import SearchCampaignsController from "./search_campaigns_controller"
 application.register("search-campaigns", SearchCampaignsController)

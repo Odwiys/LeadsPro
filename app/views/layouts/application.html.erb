@@ -14,7 +14,14 @@
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
 
-    <%= render "shared/navbar" %>
+      <% if user_signed_in? %>
+        <%= render partial: "shared/navbar_signed_in" %>
+      <% else %>
+        <%= render partial: "shared/navbar_signed_out" %>
+      <% end %>
+
     <%= yield %>
   </body>
+
+
 </html>

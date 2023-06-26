@@ -4,36 +4,51 @@
 @import "form_legend_clear";
 @import "navbar";
 
-.form-control {
-    border: 2;
-	width: 378px;
+// body {
+// 	max-width: 1024px;
+// 	margin: 0 auto;
+// }
+
+.background {
+  background-image: url("background.svg");
+  background-size: cover;
+  background-color: #2564AF;
 }
 
-.btn-secondary {
-	border: 0;
-	background-color: grey;
-	border-radius: 14px;
+.welcome-height {
+  transform: translateY(50%);
 }
+
+// .form-control {
+//     border: 2;
+// 	width: 378px;
+// }
+
+// .btn-secondary {
+// 	border: 0;
+// 	background-color: grey;
+// 	border-radius: 14px;
+// }
 
 .box {
 	border: 1px solid rgba(00, 00, 00, 0.2);
 	border-radius: 6px;
 }
 
-.position-relative {
-	position: relative;
+.color-hot {
+  color: #05366e;
 }
 
-.position-absolute {
-	position: absolute;
-	bottom: 30px;
-	right: 35px;
+.color-warm {
+  color: #1a89ff;
 }
 
-.position-message {
-	position: fixed;
-	bottom: 30px;
-	right: 400px;
+.color-cold {
+  color: #10e7ff;
+}
+
+.text-lighter {
+  opacity: 0.2;
 }
 
 .line-div{
@@ -48,7 +63,66 @@
 
 .flex-parent{display:flex;}
 
+.popup-link {
+  cursor: pointer;
+  }
 
+.popup-overlay {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transform: scale(2);
+  pointer-events: none;
+  transition: 300ms;
+  
+  &.active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: all;
+  }
+}
+  
+.popup-content {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	background-color: white;
+	padding: 30px;
+  margin: 20px;
+  border-radius: 6px;
+  height: 580px;
+  width: 650px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-button {
+  position: fixed;
+  left: 600px;
+  top: 10px;
+  border: 1px solid rgba(0, 0, 0, 0);
+  color: rgb(173, 173, 173);
+  background-color: rgba(0, 0, 0, 0);
+  font-size: 30px;
+  transition: 300ms;
+}
+
+.close-button:hover {
+  color: black;
+}
+
+.indiv-font{
+  font-size: 20px;
+}
+
+.message-right {
+  position: fixed;
+  right: 30px;
+}
 // Date picker css here:
 
 .rd-container {
