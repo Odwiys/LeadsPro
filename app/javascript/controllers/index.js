@@ -9,3 +9,6 @@ application.register("hello", HelloController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import SearchCampaignsController from "./search_campaigns_controller"
+application.register("search-campaigns", SearchCampaignsController)
