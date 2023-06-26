@@ -6,9 +6,14 @@ export default class extends Controller {
   static targets = ["questions"]
   connect() {
     console.log('hello')
+
+    console.log(';byebye')
+
+    const a = Object.getOwnPropertyNames(Object.getPrototypeOf(this))
+    console.log(a)
   }
 
-  test() {
+  popupQuestions() {
     console.log('helloss')
   }
 }

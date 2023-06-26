@@ -13,14 +13,8 @@ application.register("hello", HelloController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
-import { Application } from "@hotwired/stimulus"
-import { definitionsFromContext } from "@hotwired/stimulus-webpack-helpers"
-
-window.Stimulus = Application.start()
-const context = require.context("./controllers", true, /\.js$/)
-Stimulus.load(definitionsFromContext(context))
-import PopupController from "./popup_controller"
-application.register("popup", PopupController)
-
 import SearchCampaignsController from "./search_campaigns_controller"
 application.register("search-campaigns", SearchCampaignsController)
+
+import PopupController from "./popup_controller"
+application.register("popup", PopupController)
