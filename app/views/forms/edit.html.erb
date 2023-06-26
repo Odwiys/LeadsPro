@@ -10,13 +10,15 @@
       <% end %>
 
       <%# Current_user compulsory questions %>
-      <h2>Previously saved questions</h2>
+      <%# <h2>Previously saved questions</h2> %>
 
       <% UserQuestion.compulsory_questions_for(current_user).each do |compulsory| %>
         <div class="mb-3 string required disabled lead_name">
           <label class="form-label string required disabled" for="lead_name">
           <%= compulsory.title %> <abbr title="required">*
-          </abbr></label><input class="form-control string required disabled default-value" value="Lead will input answer here" disabled="disabled" type="text" name="lead[name]" id="lead_name">
+          </abbr></label>
+          <input class="delete-checkbox" type="checkbox" data-question-id="<%= compulsory.id %>">
+          <input class="form-control string required disabled default-value" value="Lead will input answer here" disabled="disabled" type="text" name="lead[name]" id="lead_name">
         </div>
       <% end %>
       <div class="border border-primary" data-controller="choose-previous-questions">
