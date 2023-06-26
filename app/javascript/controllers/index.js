@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChoosePreviousQuestionsController from "./choose_previous_questions_controller"
+application.register("choose-previous-questions", ChoosePreviousQuestionsController)
+
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
@@ -15,4 +18,3 @@ application.register("popup", PopupController)
 
 import SearchCampaignsController from "./search_campaigns_controller"
 application.register("search-campaigns", SearchCampaignsController)
-
