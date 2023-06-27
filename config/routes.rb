@@ -28,5 +28,5 @@ Rails.application.routes.draw do
   resources :forms, only: :update
   
   get "dashboard", to: "pages#dashboard"
-  post "sendemail", to: "send_email#new"
+  post "sendemail", to: "send_email#send_email"
 end
