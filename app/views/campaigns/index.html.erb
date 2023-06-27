@@ -10,9 +10,9 @@
                         class: "form-control",
                         placeholder: "Search..",
                         value: params[:query],
-                        data: 
+                        data:
                         {search_campaigns_target: "input",
-                          action: "keyup->search-campaigns#update"                     
+                          action: "keyup->search-campaigns#update"
                       } %>
         <% end %>
     </div>
@@ -21,7 +21,7 @@
   <div class="container">
     <div class="row g-2">
       <div class="col-3">
-        <div class="p-2 fs-5">Campaign Name</div> 
+        <div class="p-2 fs-5">Campaign Name</div>
       </div>
       <div class="col-4">
         <div class="p-2 fs-5">Date Created</div>
@@ -37,8 +37,6 @@
 
   <div class="box overflow-auto p-3 shadow-sm box-height">
       <%= render "campaign", campaigns: @campaigns %>
-
-      
   </div>
 </div>
 

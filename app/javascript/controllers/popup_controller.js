@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ['popupContent']
 
   connect() {
-    // console.log('popup connected');
+    console.log('popup connected');
   }
 
   show() {
