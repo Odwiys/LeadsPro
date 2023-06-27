@@ -6,11 +6,13 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "articles#index"
   resources :users, only: %i[new create index]
-  
+
   resources :campaigns do
     resources :forms, only: %i[new create edit]
     resources :leads
   end
+
+  resources :forms, only: :update
 
   get "dashboard", to: "pages#dashboard"
 end
