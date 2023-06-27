@@ -6,10 +6,11 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    @form_question = FormQuestion.new
     @question = Question.new(question_params)
-    @question.form = @form
-    @campaign.user = current_user
-    if @question.save
+    @form_question.question = @question
+    @form_question.form = @form
+    if @question.save && @form_question.save
       redirect_to @form, notice: 'Question created successfully.'
     else
       render :new, status: :unprocessable_entity

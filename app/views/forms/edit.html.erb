@@ -1,4 +1,4 @@
-<div class="container" data-controller="choose-previous-questions">
+<div class="container" data-controller="choose-previous-questions popup">
   <div class="row">
     <h1 class="text-center my-5">Customize Your Form Questions</h1>
 
@@ -23,7 +23,7 @@
       <% end %>
 
       <div data-choose-previous-questions-target='addqn'>
-      <%# additional questions %>
+        <%# additional questions %>
         <% @form.questions.each do |question| %>
           <div class="mb-3 string required disabled lead_name">
             <label data-choose-previous-questions-target="addqn" class="form-label string required disabled" for="lead_name">
@@ -41,27 +41,27 @@
 
 
           <% unless @previous_questions.empty? %>
-
-          <div class="rounded form-control default-value" data-action="click->choose-previous-questions#popupQuestions">
-            Choose from previous questions
-            <%= simple_form_for @form, remote: true, data: {
-                choose_previous_questions_target: "form"
-              } do |f| %>
-              <%= f.input :questions,
-              input_html: { id: "tom-select-it" },
-              data: {
-                choose_previous_questions_target: "tom"
-              } %>
-            <% end %>
-            <%# <input data-choose-previous-questions-target="tom" id="tom-select-it" /> %>
-          </div>
-          <button data-action="click->choose-previous-questions#submitQuestions">Add question(s)</button>
+            <div class="rounded form-control default-value" data-action="click->choose-previous-questions#popupQuestions">
+              Choose from previous questions
+              <%= simple_form_for @form, remote: true, data: {
+                  choose_previous_questions_target: "form"
+                } do |f| %>
+                <%= f.input :questions,
+                input_html: { id: "tom-select-it" },
+                data: {
+                  choose_previous_questions_target: "tom"
+                } %>
+              <% end %>
+              <%# <input data-choose-previous-questions-target="tom" id="tom-select-it" /> %>
+            </div>
+            <div>
+              <button data-action="click->choose-previous-questions#submitQuestions">Add question(s)</button>
+            </div>
           <% end %>
 
           <div class="rounded form-control default-value">
-            Create a new question
-
-            <%= render "create_new_qn", questions: @questions %>
+            <button data-action="click->popup#show">Create a new question</button>
+            <%= render 'create_new_qn', form: @form, question: Question.new, campaign: @campaign %>
           </div>
           <%# click choose from previous questions %>
 
@@ -83,9 +83,11 @@
         </div>
       </div>
 
-
       <%#= f.submit "Submit new form!", class: "btn btn-primary" %>
+      <div class="flex-container my-3">
+      <%= link_to "Done", campaigns_path, class: "btn btn-primary" %>
       <%= link_to "Back to edit Form Title", new_campaign_form_path(@campaign), class: "btn btn-secondary" %>
+      </div>
   </div>
 </div>
 

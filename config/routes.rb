@@ -9,11 +9,20 @@ Rails.application.routes.draw do
 
   resources :campaigns do
     resources :forms, only: %i[new create edit] do
-      resources :questions, only: %i[new create] do
-        resources :options, only: %i[new create]
-      end
+      resources :questions, only: %i[new create]
     end
     resources :leads
+  end
+
+  # resources :forms, only: [] do
+  #   resources :questions, only: %i[] do
+  #     resources :form_questions, only: [:create]
+  #   end
+  # end
+
+  resources :questions, only: [] do
+    resources :options, only: %i[:create]
+    # resources :options, only: %i[new create]
   end
 
   resources :forms, only: :update

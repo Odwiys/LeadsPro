@@ -7,6 +7,7 @@ class FormsController < ApplicationController
   def create
     @form = Form.new(form_params)
     @campaign = Campaign.find(params[:campaign_id])
+    @question = Question.new
     @form.campaign = @campaign
     @campaign.user = current_user
     if @form.save
