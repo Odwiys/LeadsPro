@@ -12,17 +12,23 @@ class Lead < ApplicationRecord
     answers = response.answers
     rating = 0.0
     answers.each do |answer|
-      value = answer.sentiment_value
-      rating += value
       # if multiple choice, take hard coded sentiment points
-        # rating += answer.sentiment
-      # else, run chatgpt analysis
-        # rating += answer.sentiment
-      # end
+      if answer.question.format == "multiple choice"
+        answer.question.options.each do |option|
+          if option.value == answer.value
+            sentiment = option.sentiment_value
+            rating += sentiment
+          end
+        end
+      else
+        # else, take value from chatgpt analysis
+        value = answer.sentiment_value
+        rating += value
+      end
     end
     # # calculate the average / total rating
     final_rating = rating / anwers.length
-    # rating = Float
+
     # attribute rating to leads > rating
     this.rating = final_rating
 

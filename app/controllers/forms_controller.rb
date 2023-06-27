@@ -49,14 +49,17 @@ class FormsController < ApplicationController
     end
   end
 
+
   def sentiment
     # retrieve the answer
     @form = Form.find(params[:id])
     answers = @form.answers
-    # retrieve the question from the answer
     questions_list = []
     replies_list = []
+    # retrieve the question from the answer (Only take open-ended qns)
     answers.each do |answer|
+      next if answer.question.format == "multiple choice"
+
       reply = answer.value
       replies_list << reply
       question = answer.question.title
@@ -74,7 +77,8 @@ class FormsController < ApplicationController
         model: 'gpt-3.5-turbo',
         messages: [
           { role: 'user',
-            content: content }
+            content: content
+          }
         ]
       }
     )
