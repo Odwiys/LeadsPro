@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <h1>Edit Campaign</h1>
+    <p>Please update the campaign details.</p>
+  </div>
+
+  <div class="row">
+    <%= simple_form_for @campaign do |f| %>
+      <%= f.input :name %>
+
+      <div class="row">
+        <div class="col-md-6 mb-4">
+          <%= f.input :start_date, as: :string, input_html: { readonly: true, class: 'form-control m-2 mb-3', id: 'campaign_start_date' }, placeholder: 'Campaign start date' %>
+          <div id="inline_cal_from"></div>
+        </div>
+        <div class="col-md-6 mb-4">
+          <%= f.input :end_date, as: :string, input_html: { readonly: true, class: 'form-control m-2 mb-3', id: 'campaign_end_date' }, placeholder: 'Campaign end date' %>
+          <div id="inline_cal_to"></div>
+        </div>
+      </div>
+
+      <%= f.input :details %>
+      <%= f.submit "Next", class: "btn btn-primary" %>
+      <%= link_to "Cancel", campaigns_path, class: "btn btn-secondary" %>
+
+    <% end %>
+  </div>
+</div>
+
+<script src="/rome.js"></script>
+<script src="/jquery-3.3.1.min.js"></script>
+<script src="/main.js"></script>

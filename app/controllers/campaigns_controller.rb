@@ -1,5 +1,5 @@
 class CampaignsController < ApplicationController
-  before_action :set_campaign, only: %i[show]
+  before_action :set_campaign, only: [:show, :edit, :update]
 
   def index
     @campaigns = Campaign.all
@@ -13,7 +13,7 @@ class CampaignsController < ApplicationController
   end
 
   def new
-    @campaign = Campaign.new(params[:id])
+    @campaign = Campaign.new
     @campaign.user = current_user
   end
 
@@ -30,11 +30,22 @@ class CampaignsController < ApplicationController
 
   def show
   end
-  
+
+  def edit
+  end
+
+  def update
+    if @campaign.update(campaign_params)
+      redirect_to @campaign, notice: "Campaign updated successfully."
+    else
+      render :edit
+    end
+  end
+
   private
 
   def set_campaign
-    @campaign = campaign.find(params[:id])
+    @campaign = Campaign.find(params[:id])
   end
 
   def campaign_params

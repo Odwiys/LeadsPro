@@ -1,4 +1,3 @@
-
 <div class="col-12">
 	<div class="row g-2 pt-2">
 		<% campaigns.each do |campaign| %>
@@ -12,8 +11,9 @@
 			<div class="p-2 mt-1">URL</div>
 		</div>
 		<div class="col-2">
-			<div class="p-2"><button class="btn btn-primary rounded-4 p-2" type="submit">EDIT</button>
-			<button class="btn btn-primary rounded-4 p-2" type="submit">VIEW</button></div>
+			<%= link_to "EDIT", edit_campaign_path(campaign), class: "btn btn-primary rounded-4 p-2" %>
+			<button class="btn btn-primary rounded-4 p-2" type="submit">VIEW</button>
+      </div>
 		</div>
 		<% end %>
 </div>
