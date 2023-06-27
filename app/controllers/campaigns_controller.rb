@@ -20,6 +20,7 @@ class CampaignsController < ApplicationController
   def create
     @campaign = Campaign.new(campaign_params)
     @campaign.user = current_user
+    @campaign.date_created = Time.now
 
     if @campaign.save
       redirect_to new_campaign_form_path(@campaign)
