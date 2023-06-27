@@ -10,6 +10,7 @@ class UserQuestion < ApplicationRecord
 
   def self.non_compulsory_questions_for(user)
     where(user:, compulsory: false)
+      .map(&:question)
   end
 
   def self.join_questions_for(user)
