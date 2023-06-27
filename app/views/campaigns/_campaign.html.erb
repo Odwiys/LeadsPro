@@ -1,25 +1,22 @@
-<div class="row g-2 pt-2">
-  <% campaigns.each do |campaign| %>
-    <div class="row g-2 pt-2" data-controller="popup">
-
-      <div class="col-3 box">
-        <div class="p-2 mt-1"><%= link_to campaign.name, campaign_leads_path(campaign), class: "text-dark text-decoration-none" %></div>
-      </div>
-
-      <div class="col-4">
-        <div class="p-2 mt-1"><%= campaign.date_created %> </div>
-      </div>
-
-      <div class="col-3">
-        <div class="p-2 mt-1">URL</div>
-      </div>
-
-      <div class="col-2">
-        <div class="p-2"><button class="btn btn-primary rounded-4 p-2" type="submit">EDIT</button>
+<div class="col-12">
+  <div class="row g-2 pt-2">
+    <% campaigns.each do |campaign| %>
+      <div class="row g-2 pt-2" data-controller="popup">
+        <div class="col-3 box">
+          <div class="p-2 mt-1"><%= link_to campaign.name, campaign_leads_path(campaign), class: "text-dark text-decoration-none" %></div>
+        </div>
+        <div class="col-4">
+          <div class="p-2 mt-1"><%= campaign.date_created %> </div>
+        </div>
+        <div class="col-3">
+          <div class="p-2 mt-1">URL</div>
+        </div>
+        <div class="col-2">
+          <%= link_to "EDIT", edit_campaign_path(campaign), class: "btn btn-primary rounded-4 p-2" %>
           <button data-action="click->popup#show" class="btn btn-primary rounded-4 p-2" type="submit">VIEW</button>
         </div>
       </div>
-
+    </div>
 
   <%# popup content %>
   <div class="popup-overlay" data-popup-target="popupContent">
@@ -57,5 +54,5 @@
   </div>
   </div>
 
-`</div>
-<% end %>
+  `</div>
+  <% end %>
