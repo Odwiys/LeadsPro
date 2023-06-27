@@ -1,24 +1,21 @@
-<div class="col-12" data-controller="popup">
+<div data-controller="popup">
 	<div class="row g-2">
 
 		<div class="col-1">
 			<div class="p-2 t-1">
-			<% if lead.rating > 6.66 %>
-				<i class="fa-solid fa-star text-primary"></i> 
-			<% elsif lead.rating > 3.33 %>
-				<i class="fa-regular fa-star-half-stroke text-primary"></i>
-			<% else %>
-				<i class="fa-regular fa-star text-primary"></i>
-			<% end %>
+				<% if lead.rating > 6.66 %>
+					<i class="fa-solid fa-star text-primary"></i> 
+				<% elsif lead.rating > 3.33 %>
+					<i class="fa-regular fa-star-half-stroke text-primary"></i>
+				<% else %>
+					<i class="fa-regular fa-star text-primary"></i>
+				<% end %>
 			</div>
 		</div>
 
 		<div class="col-3 box">
 			<div class="p-2 mt-1">
-
 				<a class="text-dark text-decoration-none popup-link" data-action="click->popup#show"><%= lead.name %></a>
-
-
 			</div>
 		</div>
 
@@ -33,35 +30,40 @@
 		<div class="col-1">
 			<div class="p-2 toggler-wrapper style-2"><%= check_box_tag "Message", 'yes'%></div>
 		</div>
-
+	
 	</div>
 
-	<%# popup content %>
-	<div class="popup-overlay" data-popup-target="popupContent">
-		<div class="popup-content">
-		<div>
-			<button class="close-button" data-action="click->popup#close">x</button>
-		</div>
+  
 
-		<h2 class="p-3 text-center mx-auto box mb-3" style="width: 400px;"><%= lead.name %></h2>
-		
-		<div class="d-flex justify-content-between pt-3">
+	<%= popup title: lead.name do %>
+    <div class="d-flex justify-content-between pt-3">
 			<h3 class="indiv-font">Email:</h3>
-			<div class="px-1 box overflow-auto" style="width: 150px; height: 30px">
-			<%= lead.email %>
+			<div class="px-1 box overflow-auto email-box">
+				<%= lead.email %>
 			</div>
 
 			<h3 class="indiv-font">Phone No:</h3> 
-			<div class="px-1 box" style="width: 150px;">
-			<%= lead.phone_number %>
+			<div class="px-1 box phone-number-box">
+				<%= lead.phone_number %>
 			</div>                  
 		</div>
 
+		<%# responses and answers %>
 		<h3 class="indiv-font pt-3">Response</h3>
-		<div class="p-1 box" style="height:150px">
-			<p>RESPONESE!!!!!!!!!!!!</p>
+		<div class="box overflow-auto response-size">   
+			<div class="m-4">		
+				<% UserQuestion.join_questions_for(current_user).each do |question| %>
+          <hr>	
+				  <p class="text-primary"> <%= question.title %></p>
+          <hr>
+					<% lead.response.answers.each do |answer| %>
+					<p><%= answer.value %></p>
+					<% end %>
+				<% end %>
+			</div>
 		</div>
 		
+		<%# rating %>
 		<h3 class="indiv-font pt-3">Rating</h3>
 		<div class="p-1">
 			<% if lead.rating > 6.66 %>
@@ -78,12 +80,10 @@
 				<i class="mx-2  fa-solid fa-star text-lighter fa-xl"></i>
 			<% end %>
 		</div>
+
+		<%# button %>
 		<div class="my-4 message-right">
-			<button class="btn btn-secondary" style="height: 80px; width: 250px" type="submit">Message</button>
+			<button class="btn btn-primary message-box" type="submit">Message</button>
 		</div>
-
-		</div>
-	</div>
-	<%# ./popup content %>
+  <% end %>
 </div>
-

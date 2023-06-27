@@ -1,12 +1,12 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["form", "input", "list"]
+  static targets = ["form", "input", "campaign"]
 
   connect() {
     console.log(this.formTarget)
     console.log(this.inputTarget)
-    console.log(this.listTarget)
+    console.log(this.campaignTarget)
   }
 
   update() {
