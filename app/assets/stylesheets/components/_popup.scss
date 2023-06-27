@@ -13,6 +13,7 @@
 	transform: scale(2);
 	pointer-events: none;
 	transition: 300ms;
+  z-index: 1000;
 
   &.active {
     opacity: 1;
@@ -33,6 +34,7 @@
 	height: 580px;
 	width: 650px;
 	box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1001;
 }
 
 .close-button {
