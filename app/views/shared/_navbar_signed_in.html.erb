@@ -12,9 +12,11 @@
           <i class="fa-solid fa-xmark fa-2x" data-action="click->navbar#closeMenu"></i>
       </div>
 
-      <div class="menu-container">
+      <div class="menu-container navbar-top-margin">
         <%= button_to "Create", new_campaign_path, method:  :get, class: "btn btn-info mb-5" %>
         <ul class="menu-items">
+
+        <p>Menu</p>
           <li class="nav-item">
             <a href="<%= root_path %>" class="nav-link link-light">
               <i class="fa fa-home"></i> Dashboard
@@ -42,7 +44,7 @@
           </li>
         </ul>
         <% if user_signed_in? %>
-          <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light", form: { data: { "turbolinks-action": "replace", "turbolinks-frame": "_top" } } %>
+          <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light navbar-top-margin", form: { data: { "turbolinks-action": "replace", "turbolinks-frame": "_top" } } %>
         <% else %>
           <%= button_to "Log out", root_path, class: "btn btn-light" %>
         <% end %>
