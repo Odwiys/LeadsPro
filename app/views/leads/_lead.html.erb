@@ -4,7 +4,7 @@
 		<div class="col-1">
 			<div class="p-2 t-1">
 				<% if lead.rating > 6.66 %>
-					<i class="fa-solid fa-star text-primary"></i> 
+					<i class="fa-solid fa-star text-primary"></i>
 				<% elsif lead.rating > 3.33 %>
 					<i class="fa-regular fa-star-half-stroke text-primary"></i>
 				<% else %>
@@ -30,10 +30,10 @@
 		<div class="col-1">
 			<div class="p-2 toggler-wrapper style-2"><%= check_box_tag "Message", 'yes'%></div>
 		</div>
-	
+
 	</div>
 
-  
+
 
 	<%= popup title: lead.name do %>
     <div class="d-flex justify-content-between pt-3">
@@ -42,18 +42,18 @@
 				<%= lead.email %>
 			</div>
 
-			<h3 class="indiv-font">Phone No:</h3> 
+			<h3 class="indiv-font">Phone No:</h3>
 			<div class="px-1 box phone-number-box">
 				<%= lead.phone_number %>
-			</div>                  
+			</div>
 		</div>
 
 		<%# responses and answers %>
 		<h3 class="indiv-font pt-3">Response</h3>
-		<div class="box overflow-auto response-size">   
-			<div class="m-4">		
+		<div class="box overflow-auto response-size">
+			<div class="m-4">
 				<% UserQuestion.join_questions_for(current_user).each do |question| %>
-          <hr>	
+          <hr>
 				  <p class="text-primary"> <%= question.title %></p>
           <hr>
 					<% lead.response.answers.each do |answer| %>
@@ -62,7 +62,7 @@
 				<% end %>
 			</div>
 		</div>
-		
+
 		<%# rating %>
 		<h3 class="indiv-font pt-3">Rating</h3>
 		<div class="p-1">
