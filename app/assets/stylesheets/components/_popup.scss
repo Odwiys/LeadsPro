@@ -137,6 +137,11 @@ color: black;
 	transition: 300ms;
 }
 
-.form-control {
-  width: 80%;
+.new-message-box {
+	height: 200px;
+	width: 600px;
+}
+
+textarea {
+  resize: none;
 }

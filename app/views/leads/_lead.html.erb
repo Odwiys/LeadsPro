@@ -54,10 +54,10 @@
 			<div class="m-4">
 				<% UserQuestion.join_questions_for(current_user).each do |question| %>
           <hr>
-				  <p class="text-primary"> <%= question.title %></p>
+						<p class="text-primary"> <%= question.title %></p>
           <hr>
 					<% lead.response.answers.each do |answer| %>
-					<p><%= answer.value %></p>
+						<p><%= answer.value %></p>	
 					<% end %>
 				<% end %>
 			</div>
