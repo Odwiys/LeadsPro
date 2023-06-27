@@ -6,4 +6,9 @@ class UserQuestion < ApplicationRecord
     where(user:, compulsory: true)
       .map(&:question)
   end
+
+  def self.non_compulsory_questions_for(user)
+    where(user:, compulsory: false)
+      .map(&:question)
+  end
 end

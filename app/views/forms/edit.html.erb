@@ -1,9 +1,9 @@
-<div class="container">
+<div class="container" data-controller="choose-previous-questions">
   <div class="row">
     <h1 class="text-center my-5">Customize Your Form Questions</h1>
 
       <%# Lead questions %>
-      <%= simple_form_for [@lead] do |f| %>
+      <%= simple_form_for [@campaign, @lead] do |f| %>
         <%= f.input :name, disabled: true, input_html: { value: 'Lead will input name here', class: 'default-value' } %>
         <%= f.input :email, disabled: true, input_html: { value: 'Lead will input email here', class: 'default-value' }  %>
         <%= f.input :phone_number, disabled: true, input_html: { value: 'Lead will input phone number here', class: 'default-value' }  %>
@@ -21,21 +21,42 @@
           <input class="form-control string required disabled default-value" value="Lead will input answer here" disabled="disabled" type="text" name="lead[name]" id="lead_name">
         </div>
       <% end %>
-      <div data-controller="choose-previous-questions">
+
+      <div data-choose-previous-questions-target='addqn'>
+      <%# additional questions %>
+        <% @form.questions.each do |question| %>
+          <div class="mb-3 string required disabled lead_name">
+            <label data-choose-previous-questions-target="addqn" class="form-label string required disabled" for="lead_name">
+            <%= question.title %><abbr title="required">*
+            </abbr></label>
+            <input class="delete-checkbox" type="checkbox">
+            <input class="form-control string required disabled default-value" value="Lead will input answer here" disabled="disabled" type="text" name="lead[name]" id="lead_name">
+          </div>
+        <% end %>
+      </div>
+
+      <div>
         <p>Add a question (optional)</p>
         <div class="border rounded" >
-          <div class="rounded form-control string required disabled default-value" data-action="click->choose-previous-questions#popupQuestions">
-            Choose from previous questions
-            <input id="tom-select-it" />
-            <link rel="stylesheet" href="/css/tom-select.default.css">
-            <script src="/js/tom-select.complete.js"></script>
-            <script>
-            var settings = {};
-            new TomSelect('#tom-select-it',settings);
-            </script>
-          </div>
+          <% unless @previous_questions.empty? %>
 
-          <div class="rounded form-control string required disabled default-value">
+          <div class="rounded form-control default-value" data-action="click->choose-previous-questions#popupQuestions">
+            Choose from previous questions
+            <%= simple_form_for @form, remote: true, data: {
+                choose_previous_questions_target: "form"
+               } do |f| %>
+              <%= f.input :questions,
+              input_html: { id: "tom-select-it" },
+              data: {
+                choose_previous_questions_target: "tom"
+               } %>
+            <% end %>
+            <%# <input data-choose-previous-questions-target="tom" id="tom-select-it" /> %>
+          </div>
+          <button data-action="click->choose-previous-questions#submitQuestions">Add question(s)</button>
+          <% end %>
+
+          <div class="rounded form-control default-value">
             Create a new question
           </div>
           <%# click choose from previous questions %>
@@ -63,3 +84,16 @@
       <%= link_to "Back to edit Form Title", new_campaign_form_path(@campaign), class: "btn btn-secondary" %>
   </div>
 </div>
+
+<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
+<script>
+    var settings = {
+      options: [
+          <% @previous_questions.each do |compulsory| %>
+            {value: "<%= compulsory.id %>", text: "<%= compulsory.title %>"},
+          <% end %>
+      ]
+    };
+    new TomSelect('#tom-select-it',settings);
+</script>
