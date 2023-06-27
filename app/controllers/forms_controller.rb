@@ -8,6 +8,12 @@ class FormsController < ApplicationController
     @form = Form.new(form_params)
     @campaign = Campaign.find(params[:campaign_id])
     @question = Question.new
+    @form_question = FormQuestion.new
+    @user_questions = current_user.user_questions
+    @user_questions.each do |user_question|
+      @form.questions << user_question.question if user_question.compulsory
+    end
+    @form_question.form = @form
     @form.campaign = @campaign
     @campaign.user = current_user
     if @form.save
