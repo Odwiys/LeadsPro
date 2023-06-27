@@ -22,10 +22,12 @@
       </div>
 
       <%= f.input :details %>
-      <%= f.submit "Next", class: "btn btn-primary" %>
-    <% end %>
-      <%= button_to "Cancel", campaigns_path, method: :get, class: "btn btn-light" %>
 
+      <div class="d-inline-flex">
+        <%= f.submit "Next", class: "btn btn-primary button-next-cancel" %>
+      <div>
+    <% end %>
+    <%= button_to "Cancel", campaigns_path, method: :get, class: "btn btn-light button-next-cancel" %>
   </div>
 
 </div>
