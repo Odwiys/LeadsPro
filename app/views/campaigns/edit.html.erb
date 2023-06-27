@@ -21,9 +21,9 @@
 
       <%= f.input :details %>
       <%= f.submit "Next", class: "btn btn-primary" %>
-      <%= link_to "Cancel", campaigns_path, class: "btn btn-secondary" %>
-
     <% end %>
+      <%= button_to "Cancel", campaigns_path, method: :get, class: "btn btn-lights" %>
+
   </div>
 </div>
 

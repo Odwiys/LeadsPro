@@ -1,29 +1,53 @@
 <%# Navbar content over here %>
-<div class="navbar bg-white shadow-sm p-3 mb-5 bg-body-tertiary rounded" data-controller="navbar">
+<div class="navbar bg-primary p-3 mb-5 rounded" data-controller="navbar">
   <div class="container-fluid justify-content-between">
-    <%= image_tag "logo/leadpro.png", style: "width: 120px;" %>
-    <i class="fa fa-bars fa-2x" data-action="click->navbar#openMenu"></i>
+    <%= image_tag "logo/logo-white.png", style: "width: 150px;" %>
+    <i class="fa fa-bars fa-2x text-white" data-action="click->navbar#openMenu"></i>
   </div>
 
   <div class="slider-menu-wrapper" data-navbar-target="menu">
     <div class="menu-content">
-      <i class="fa fa-times fa-2x" data-action="click->navbar#closeMenu"></i>
-        <div class="menu-container">
-          <ul class="menu-items">
-          <li><%= button_to "Create", new_campaign_path, method: :get, class: "btn btn-info btn-create" %></li>
-          <li><a href="<%= root_path %>" class="link-light"><i class="fa fa-home"></i> Home</a></li>
-          <li><a href="<%= campaigns_path %>" class="link-light"><i class="fa fa-bullhorn"></i> Campaigns</a></li>
-          <li><a href="#" class="link-light"><i class="fa fa-chart-bar"></i> Reports</a></li>
-          <li><a href="#" class="link-light"><i class="fa fa-users"></i> Leads</a></li>
-            <li>
-              <% if user_signed_in? %>
-                <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light", form: { data: { "turbolinks-action": "replace", "turbolinks-frame": "_top" } } %>
-              <% else %>
-                <%= button_to "Log out", root_path, class: "btn btn-light" %>
-              <% end %>
-            </li>
-          </ul>
-        </div>
+
+      <div class="d-flex flex-row-reverse mt-3 mx-4">
+          <i class="fa-solid fa-xmark fa-2x" data-action="click->navbar#closeMenu"></i>
+      </div>
+
+      <div class="menu-container">
+        <%= button_to "Create", new_campaign_path, method:  :get, class: "btn btn-info mb-5" %>
+        <ul class="menu-items">
+          <li class="nav-item">
+            <a href="<%= root_path %>" class="nav-link link-light">
+              <i class="fa fa-home"></i> Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="<%= campaigns_path %>" class="nav-link link-light">
+              <i class="fa fa-bullhorn"></i> Campaigns
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link link-light">
+              <i class="fa fa-users"></i> Leads
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link link-light">
+              <i class="fa fa-chart-bar"></i> Report
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="#" class="nav-link link-light">
+              <i class="fa fa-gear"></i> Settings
+            </a>
+          </li>
+        </ul>
+        <% if user_signed_in? %>
+          <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light", form: { data: { "turbolinks-action": "replace", "turbolinks-frame": "_top" } } %>
+        <% else %>
+          <%= button_to "Log out", root_path, class: "btn btn-light" %>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>

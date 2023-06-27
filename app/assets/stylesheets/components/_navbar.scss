@@ -60,7 +60,7 @@
 .menu-content{
   position: fixed;
   height: 100vh;
-  width: 30%;
+  width: 20%;
   top: 0;
   right: 0;
   background-color: $lp-primary-blue;
@@ -75,7 +75,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 60vh; /* Adjust the height as needed */
+  height: 40vh; /* Adjust the height as needed */
 }
 
 .menu-items {
@@ -84,7 +84,7 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  align-items: flex-start; /* Align items to the left */
+  align-items: center; /* Align items to the left */
   justify-content: center;
 }
 
@@ -94,16 +94,10 @@
   padding: 10px;
 }
 
-.menu-items li a {
-  display: flex;
-  align-items: center;
-}
-
-.menu-items li a i {
-  margin-right: 12px; /* Adjust the spacing as needed */
-}
 
 
-.btn-create {
+.nav-item li {
+  color: white;
   margin-bottom: 10px;
+  padding: 10px;
 }
