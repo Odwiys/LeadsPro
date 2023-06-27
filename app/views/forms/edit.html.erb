@@ -38,18 +38,20 @@
       <div>
         <p>Add a question (optional)</p>
         <div class="border rounded" >
+
+
           <% unless @previous_questions.empty? %>
 
           <div class="rounded form-control default-value" data-action="click->choose-previous-questions#popupQuestions">
             Choose from previous questions
             <%= simple_form_for @form, remote: true, data: {
                 choose_previous_questions_target: "form"
-               } do |f| %>
+              } do |f| %>
               <%= f.input :questions,
               input_html: { id: "tom-select-it" },
               data: {
                 choose_previous_questions_target: "tom"
-               } %>
+              } %>
             <% end %>
             <%# <input data-choose-previous-questions-target="tom" id="tom-select-it" /> %>
           </div>
@@ -58,6 +60,8 @@
 
           <div class="rounded form-control default-value">
             Create a new question
+
+            <%= render "create_new_qn", questions: @questions %>
           </div>
           <%# click choose from previous questions %>
 

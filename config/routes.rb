@@ -8,7 +8,11 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create index]
 
   resources :campaigns do
-    resources :forms, only: %i[new create edit]
+    resources :forms, only: %i[new create edit] do
+      resources :questions, only: %i[new create] do
+        resources :options, only: %i[new create]
+      end
+    end
     resources :leads
   end
 

@@ -1,0 +1,16 @@
+<h1>New Question</h1>
+
+<%= simple_form_for [@form, @question] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :format, collection: ['multiple choice', 'open-ended'] %>
+
+  <%= f.simple_fields_for :options do |option_form| %>
+    <%= option_form.input :value %>
+    <%= option_form.input :sentiment_value %>
+    <%= option_form.link_to_remove "Remove Option" %>
+  <% end %>
+
+  <%= f.link_to_add "Add Option", :options %>
+
+  <%= f.button :submit %>
+<% end %>
