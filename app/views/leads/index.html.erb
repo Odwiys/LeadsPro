@@ -17,36 +17,37 @@
                         } %>
               <% end %>
               <%# <%= render "show", leads: @leads %> 
-        </div>
+      </div>
     </div>
 
     <div class="container">
       <div class="row g-2">
+
         <div class="col-1">
           <div class="p-2 fs-5">No.</div>
         </div>
+
         <div class="col-3">
           <div class="p-2 fs-5">Name</div>
         </div>
+
         <div class="col-4">
           <div class="p-2 fs-5">Email</div>
         </div>
+
         <div class="col-3">
           <div class="p-2 fs-5">Phone No.</div>
         </div>
-        <div class="col-1">
-          <div class="p-2 fs-5"></div>
-        </div>
+
       </div>
     </div>
 
-    <div class="box overflow-auto p-3 shadow-sm" style="height: 900px;">
+    <div class="box overflow-auto p-3 shadow-sm box-height">
       <%= render @leads %>  
     </div>
-
-    <div class="mt-4 text-center">
-      <button class="btn btn-primary" style="height: 80px; width: 250px" type="submit">Message Leads</button>
-    </div>
-    
   </div>
+</div>
+
+<div class="mt-4 text-center">
+  <button class="btn btn-primary bottom-buttons" type="submit">Message Leads</button>
 </div>

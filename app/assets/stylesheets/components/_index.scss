@@ -20,20 +20,19 @@
   transform: translateY(50%);
 }
 
-// .form-control {
-//     border: 2;
-// 	width: 378px;
-// }
-
-// .btn-secondary {
-// 	border: 0;
-// 	background-color: grey;
-// 	border-radius: 14px;
-// }
-
 .box {
 	border: 1px solid rgba(00, 00, 00, 0.2);
 	border-radius: 6px;
+}
+
+.box-height {
+  height: 900px;
+}
+
+.bottom-buttons {
+  height: 80px;
+  width: 250px;
+  border-radius: 6px;
 }
 
 .color-hot {

@@ -30,7 +30,7 @@ class CampaignsController < ApplicationController
 
   def show
   end
-
+  
   private
 
   def set_campaign
