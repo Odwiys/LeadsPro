@@ -16,8 +16,6 @@ class AnswersController < ApplicationController
   def attempt
     @response = Response.find(params[:response_id])
     @answers = []
-    raise
-
   end
 
   def answer_params
