@@ -6,33 +6,23 @@ class Lead < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :phone_number, presence: true, uniqueness: true
 
-  after_create :analyse_sentiment
+  # after_create :analyse_sentiment
 
-  def analyse_sentiment(response)
-    answers = response.answers
-    rating = 0.0
-    answers.each do |answer|
-      # if multiple choice, take hard coded sentiment points
-      if answer.question.format == "multiple choice"
-        answer.question.options.each do |option|
-          if option.value == answer.value
-            sentiment = option.sentiment_value
-            rating += sentiment
-          end
-        end
-      else
-        # else, take value from chatgpt analysis
-        value = answer.sentiment_value
-        rating += value
-      end
-    end
-    # # calculate the average / total rating
-    final_rating = rating / anwers.length
+  # def analyse_sentiment
+  #   # response.answers
+  #   # - answer.sentiment
+  #   # self.rating = 2
+  #   # save!
 
-    # attribute rating to leads > rating
-    this.rating = final_rating
+  #   # rating = 0.0
+  #   # response.answers.each do |answer|
+  #   #   rating += answer.sentiment
+  #   # end
+  #   # # calculate the average / total rating
+  #   # rating
+  #   # # return <Float
 
-    # self.rating = 2
-    # save!
-  end
+  #   # if multiple choice, hard code sentiment points
+  #   # else, run chatgpt analysis
+  # end
 end
