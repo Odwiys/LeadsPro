@@ -12,6 +12,7 @@ class AnalyzeSentiments < ApplicationService
     #   answer = question.answer
     #   answers << answer
     # end
+    # raise
     questions_list = []
     replies_list = []
     # retrieve the question from the answer (Only take open-ended qns)
@@ -26,14 +27,18 @@ class AnalyzeSentiments < ApplicationService
 
     response = call_open_ai(questions_list, replies_list)
 
-    answers.each_with_index do |answer, index|
-      answer.update(sentiment_value: response[index])
+    counter = 0
+    @answers.each_with_index do |answer, index|
+      next if answer.question.format == "multiple choice"
+
+      answer.update(sentiment_value: response[counter])
+      counter += 1
     end
   end
 
   private
 
-  def call_open_ai
+  def call_open_ai(questions_list, replies_list)
     # @answers
 
     # use chatgpt > give it the question & answer and ask for sentiment
@@ -54,8 +59,8 @@ class AnalyzeSentiments < ApplicationService
       }
     )
     reply = response.dig('choices', 0, 'message', 'content')
-    # puts reply
-    return reply
+    response = JSON.parse(reply)
+    return response
   end
 end
 

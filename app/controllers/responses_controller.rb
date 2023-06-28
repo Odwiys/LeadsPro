@@ -13,7 +13,6 @@ class ResponsesController < ApplicationController
   def update
     @response = Response.find(params[:id])
     form = @response.form
-
     successful_saves = []
     response_params[:answers_attributes].each do |_, ans_attribute|
       answer = Answer.find_or_create_by(
@@ -26,6 +25,10 @@ class ResponsesController < ApplicationController
     end
 
     if successful_saves.length == form.questions.length && successful_saves.all?
+      answers = @response.answers
+      AnalyzeSentiments.call(answers)
+      lead = @response.lead
+      CalculateLeadRating.(lead)
       redirect_to root_path
     else
       render "edit"

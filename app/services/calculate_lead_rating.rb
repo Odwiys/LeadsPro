@@ -1,9 +1,9 @@
 class CalculateLeadRating < ApplicationService
-  def initialize
+  def initialize(lead)
     @lead = lead
   end
 
-  def analyse_sentiment
+  def call
     answers = @lead.response.answers
     rating = 0.0
     answers.each do |answer|
@@ -17,16 +17,17 @@ class CalculateLeadRating < ApplicationService
         end
       else
         # else, take value from chatgpt analysis
-        value = answer.sentiment_value
+        value = answer.sentiment_value.to_f
         rating += value
       end
     end
     # # calculate the average / total rating
-    final_rating = rating / anwers.length
+    final_rating = rating / answers.length
 
     # attribute rating to leads > rating
     @lead.rating = final_rating
-
+    @lead.save
+    # I NEED TO UPDATE THE LEAD HERE OR SOMEWHERE
     # self.rating = 2
     # save!
   end
