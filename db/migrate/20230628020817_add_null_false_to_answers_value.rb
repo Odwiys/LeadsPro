@@ -1,0 +1,5 @@
+class AddNullFalseToAnswersValue < ActiveRecord::Migration[7.0]
+  def change
+    change_column_null :answers, :value, false
+  end
+end
