@@ -1,4 +1,5 @@
-<div data-controller="popup"> 
+<%= form_with url: send_email_path, method: :post do |f| %>
+<div data-controller="popup">
   <div class="container">
     <div class="row">
       <h1 class="text-center">Leads</h1>
@@ -16,7 +17,7 @@
                             {search_leads_target: "input",
                               action: "keyup->search-leads#update"                     
                           } %>
-                <% end %>
+          <% end %>
                 <%# <%= render "show", leads: @leads %> 
         </div>
       </div>
@@ -39,15 +40,15 @@
           <div class="col-3">
             <div class="p-2 fs-5">Phone No.</div>
           </div>
-
         </div>
       </div>
 
       <div class="box overflow-auto p-3 shadow-sm box-height">
-        <%= render @leads, locals: { checked: @checked } %>  
+        
+          <%= render @leads, f: f %>
       </div>
     </div>
-  </div>``
+  </div>
 
   <div class="mt-4 text-center">
     <button class="btn btn-primary bottom-buttons text-decoration-none popup-link" type="submit" data-action="click->popup#show">Message Leads</button>
@@ -55,12 +56,15 @@
 
   <%= popup title: "New Message" do %>
     <p class="opacity-50 mt-5">Input Message to clients here:</p>
-      <textarea class="new-message-box box overflow-auto p-3" placeholder="Write Message Here!"></textarea>
-		
+      <%# <textarea class="new-message-box box overflow-auto p-3" placeholder="Write Message Here!"></textarea> %>
+      <textarea class="new-message-box box overflow-auto p-3" name="textarea" placeholder="Write Message Here!"></textarea>
     <div class="my-4 message-right">
 			<%# <button class="btn btn-primary message-box" type="submit">Message</button> %>
-      <%= link_to "Message", sendemail_path(emails: "rin"), data: { turbo_method: :post } %>
+      <%# <%= link_to "Message", send_email_path, data: { turbo_method: :post } %> 
+      <%= link_to "Message", send_email_path, class: "btn btn-primary message-box" %>
 		</div>
-  <% end %>
-</div>
+  <% end %>   
 
+  
+</div>
+<% end %>

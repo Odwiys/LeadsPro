@@ -37,6 +37,10 @@ class LeadsController < ApplicationController
   def show
   end
 
+  def message
+    
+  end
+
   private
 
   def set_leads
