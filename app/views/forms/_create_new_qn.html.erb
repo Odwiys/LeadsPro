@@ -1,17 +1,18 @@
-<%= popup title: "Create a new question" do %>
+<%= popup title: "Add your customized question" do %>
   <%# Form for question %>
-  <%= simple_form_for question, url: campaign_form_questions_path(campaign,form) do |f| %>
-    <%= f.input :format, collection: ['multiple choice', 'open-ended'], label: "Choose the format of your question" %>
-    <%= f.input :title, label: "Input your question here" %>
+  <%= simple_form_for question, url: campaign_form_questions_path(campaign, form) do |f| %>
+    <%= f.input :format, collection: ['Open-Ended'], label: "Choose the format of your question", prompt: "Select a format", data: { controller: "question" } %>
+    <%= f.input :title, label: "Type your question here" %>
 
-    <%# creating options %>
-    <%#= f.simple_fields_for :options do |option_form| %>
-      <%#= option_form.input :value %>
-      <%#= option_form.input :sentiment_value %>
-      <%#= option_form.link_to_remove "Remove Option" %>
-    <%# end %>
+    <div id="options" data-question-target="options">
+      <% if question.format == 'Multiple-Choice' %>
+        <%= f.simple_fields_for :options do |option_form| %>
+          <%= option_form.input :value, label: "Type your option here" %>
+          <%= option_form.input :sentiment_value, label: "Rate your option between (0-10) with 0 being irrelevant and 10 being very relevant" %>
+        <% end %>
+      <% end %>
+    </div>
 
-    <%#= f.link_to_add "Add Option", :options %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 <% end %>

@@ -26,46 +26,42 @@
         <% end %>
       </div>
 
-      <div>
-        <p>Add a question (optional)</p>
-        <div class="border rounded" >
-
-
-          <% unless @previous_questions.empty? %>
-            <div class="rounded form-control default-value" data-action="click->choose-previous-questions#popupQuestions">
-              Choose from previous questions:
-              <%= simple_form_for @form, remote: true, data: {
-                  choose_previous_questions_target: "form"
-                } do |f| %>
-                <%= f.input :questions,
-                input_html: { id: "tom-select-it" },
-                data: {
-                  choose_previous_questions_target: "tom"
-                } %>
-              <% end %>
-              <%# <input data-choose-previous-questions-target="tom" id="tom-select-it" /> %>
+    <div>
+      <p><strong>Add custom questions to your form (optional)</strong></p>
+        <% unless @previous_questions.empty? %>
+          <div class="rounded form-control default-value" data-action="click->choose-previous-questions#popupQuestions">
+            Frequently asked questions:
+            <%= simple_form_for @form, remote: true, data: {
+                choose_previous_questions_target: "form"
+              } do |f| %>
+              <%= f.input :questions,
+              input_html: { id: "tom-select-it" },
+              data: {
+                choose_previous_questions_target: "tom"
+              } %>
+            <% end %>
+            <%# <input data-choose-previous-questions-target="tom" id="tom-select-it" /> %>
             <div>
-              <button data-action="click->choose-previous-questions#submitQuestions">Add question(s)</button>
+              <%= button_tag 'Add', class: 'btn btn-info', 'data-action': 'click->choose-previous-questions#submitQuestions' %>
             </div>
-            </div>
-          <% end %>
-
-
-          <div class="rounded form-control default-value">
-            <div>
-              Or Create a new question:
-            </div>
-            <br>
-            <button data-action="click->popup#show">New question</button>
-            <%= render 'create_new_qn', form: @form, question: Question.new, campaign: @campaign %>
           </div>
+        <% end %>
+
+      <div class="form-control default-value">
+        <div>
+          <p>Select the format of the question:</p>
         </div>
+        <%= button_tag 'Open-Ended', class: 'btn btn-info', 'data-action': 'click->popup#show' %>
+        <%= render 'create_new_qn', form: @form, question: Question.new, campaign: @campaign %>
+        <%= button_tag 'Multiple-Choice', class: 'btn btn-info' %>
+        <%= render 'create_new_qn', form: @form, question: Question.new, campaign: @campaign %>
       </div>
+    </div>
 
       <%#= f.submit "Submit new form!", class: "btn btn-primary" %>
       <div class="flex-container my-3">
       <%= link_to "Save", campaigns_path, class: "btn btn-primary" %>
-      <%= link_to "Back to edit Form Title", new_campaign_form_path(@campaign), class: "btn btn-secondary" %>
+      <%= link_to "Back to edit Form Title", new_campaign_form_path(@campaign), class: "btn btn-light" %>
       </div>
   </div>
 </div>
