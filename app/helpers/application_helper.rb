@@ -12,7 +12,10 @@ module ApplicationHelper
 					content_tag(:button,
 					content_tag(:i, nil, class: 'fa fa-times'), class: 'close-button', data: {action: 'click->popup#close'}
 				)) +
-				content_tag(:h2, attributes[:title], class: 'p-3 text-center mx-auto box mb-3 title-box')
+				# title
+				content_tag(:h2, attributes[:title], class: 'p-3 text-center mx-auto box mb-3 title-box') +
+
+				# content
 				capture(&block)
 			end
 		end
