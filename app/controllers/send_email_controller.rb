@@ -1,5 +1,5 @@
 class SendEmailController < ApplicationController
-	def send_email
+  def send_email
 		require 'net/http'
 		require 'json'
 		require 'dotenv/load'
@@ -12,7 +12,7 @@ class SendEmailController < ApplicationController
 		params.each do |key, value|
 			lead_ids << value.to_i if key.include?('email') && value != ''
 		end
-		
+
 		leads = Lead.where(id: lead_ids)
 
 		leads.each do |lead|
@@ -23,9 +23,9 @@ class SendEmailController < ApplicationController
 				"name": "name",
 				"email": "sabrinaleess6@gmail.com"
 			}
-			
+
 			to = ['sabrinaleess6@gmail.com'].map { |email| { "email": email } }
-			
+
 			textarea_content = params[:textarea]
 
 			data = {
@@ -37,23 +37,23 @@ class SendEmailController < ApplicationController
 					"email": "sabrinaleess6@gmail.com",
 					"name": "name"
 				}
-			}		
-			
+			}
+
 			headers = {
 				'Accept': 'application/json',
 				'Content-Type': 'application/json',
 				'api-key': api_key
 			}
-			
+
 			http = Net::HTTP.new(url.host, url.port)
 			http.use_ssl = true
-			
+
 			request = Net::HTTP::Post.new(url.path, headers)
 			puts data
 			request.body = data.to_json
-			
+
 			response = http.request(request)
-			
+
 			if response.code.to_i < 400
 				# Successful request
 				puts "Email sent successfully!"
