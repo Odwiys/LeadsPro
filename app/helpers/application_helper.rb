@@ -3,19 +3,16 @@ module ApplicationHelper
 		# opening wrapper
 		content_tag(:div, nil, class: 'popup-overlay', data: {
 			popup_target: 'popupContent'
-		}) do 
+		}) do
 			# main content
-			content_tag(:div, nil, class: 'popup-content') do 
+			content_tag(:div, nil, class: 'popup-content') do
 				# close button div
-				content_tag(:div, 
+				content_tag(:div,
 					# close button icon
 					content_tag(:button,
 					content_tag(:i, nil, class: 'fa fa-times'), class: 'close-button', data: {action: 'click->popup#close'}
 				)) +
-				# title
-				content_tag(:h2, attributes[:title], class: 'p-3 text-center mx-auto box mb-3 title-box') + 
-
-				# content
+				content_tag(:h2, attributes[:title], class: 'p-3 text-center mx-auto box mb-3 title-box')
 				capture(&block)
 			end
 		end

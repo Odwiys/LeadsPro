@@ -13,12 +13,12 @@
                             class: "form-control",
                             placeholder: "Search...",
                             value: params[:query],
-                            data: 
+                            data:
                             {search_leads_target: "input",
-                              action: "keyup->search-leads#update"                     
+                              action: "keyup->search-leads#update"
                           } %>
           <% end %>
-                <%# <%= render "show", leads: @leads %> 
+                <%# <%= render "show", leads: @leads %>
         </div>
       </div>
 
@@ -44,7 +44,7 @@
       </div>
 
       <div class="box overflow-auto p-3 shadow-sm box-height">
-        
+
           <%= render @leads, f: f %>
       </div>
     </div>
@@ -60,11 +60,11 @@
       <textarea class="new-message-box box overflow-auto p-3" name="textarea" placeholder="Write Message Here!"></textarea>
     <div class="my-4 message-right">
 			<%# <button class="btn btn-primary message-box" type="submit">Message</button> %>
-      <%# <%= link_to "Message", send_email_path, data: { turbo_method: :post } %> 
+      <%# <%= link_to "Message", send_email_path, data: { turbo_method: :post } %>
       <%= link_to "Message", send_email_path, class: "btn btn-primary message-box" %>
 		</div>
-  <% end %>   
+  <% end %>
 
-  
+
 </div>
 <% end %>
