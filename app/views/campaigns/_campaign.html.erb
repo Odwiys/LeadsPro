@@ -26,9 +26,9 @@
             <h1><%= campaign.name.upcase %></h1>
           </div>
 
-          <div class="ps-5 mt-2" style="font-size: 20px;">TOTAL LEADS: <u><b><%= campaign.leads.count %></b></u></div>
-          <div class="ps-5 mt-2" style="font-size: 20px;">CAMPAIGN DETAILS</div>
-          <div class="border border-dark my-5 mx-5 shadow-lg p-3"><%= campaign.details.capitalize %></div>
+          <div class="ps-5 mt-3" style="font-size: 20px;">TOTAL LEADS: <u><b><%= campaign.leads.count %></b></u></div>
+          <div class="ps-5 mt-2" style="font-size: 20px;"><u>CAMPAIGN DETAILS</u></div>
+          <div class="campaign-details border border-dark my-3 p-2 shadow-lg"><%= campaign.details.capitalize %></div>
 
           <div class="ps-5 pb-3">
             <div class="dates d-flex w-100 align-items-baseline">
