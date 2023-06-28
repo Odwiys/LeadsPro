@@ -462,6 +462,29 @@ form_question_36 = FormQuestion.create!(
 
 puts "Creating FormQuestions done"
 
+answers = [
+  "In about 3 months",
+  "I want to invest in a property",
+  "About 1 million",
+  "Condominium",
+  "In the next year",
+  "I'm looking for a permanent residence",
+  "Around 500,000",
+  "Single-family home",
+  "As soon as possible",
+  "I'm tired of renting and want to build equity",
+  "Around 750,000",
+  "Townhouse",
+  "I haven't decided yet",
+  "I want to live in a desirable neighborhood",
+  "1.5 million or more",
+  "Luxury apartment",
+  "Not sure",
+  "I want to downsize and simplify my life",
+  "300,000 - 400,000",
+  "Duplex"
+]
+
 Form.all.each do |form|
   puts "Creating Responses for form #{form.id}"
   3.times do
@@ -482,7 +505,7 @@ Form.all.each do |form|
       if question.format == "multiple choice"
         answer.value = question.options.sample.value
       elsif question.format == "open ended"
-        answer.value = Faker::Markdown.emphasis
+        answer.value = answers.sample
       else
         puts "Invalid format: #{question.format}"
       end
