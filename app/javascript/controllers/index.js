@@ -4,6 +4,12 @@
 
 import { application } from "./application"
 
+import CampaignCardController from "./campaign_card_controller"
+application.register("campaign-card", CampaignCardController)
+
+import CheckedController from "./checked_controller"
+application.register("checked", CheckedController)
+
 import ChoosePreviousQuestionsController from "./choose_previous_questions_controller"
 application.register("choose-previous-questions", ChoosePreviousQuestionsController)
 
@@ -13,8 +19,8 @@ application.register("hello", HelloController)
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 
-import SearchCampaignsController from "./search_campaigns_controller"
-application.register("search-campaigns", SearchCampaignsController)
-
 import PopupController from "./popup_controller"
 application.register("popup", PopupController)
+
+import SearchCampaignsController from "./search_campaigns_controller"
+application.register("search-campaigns", SearchCampaignsController)

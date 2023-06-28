@@ -8,12 +8,30 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create index]
 
   resources :campaigns do
-    resources :forms, only: %i[new create edit] do
+    resources :forms, only: %i[new create edit show] do
       resources :questions, only: %i[new create]
     end
-    resources :leads
+
+    resources :leads, except: %i[new create]
   end
 
+  resources :leads, only: [] do
+    resources :response, only: %i[new create]
+  end
+
+  resources :forms do
+   resources :leads
+  end
+
+  resources :responses, only: %i[create] do
+    resources :answers, only: %i[new create] do
+      collection do
+        post 'attempt'
+      end
+    end
+  end
+
+  resources :responses, only: %i[edit update]
   resources :forms, only: [] do
     resources :questions, only: %i[] do
       resources :form_questions, only: [:create]
@@ -26,6 +44,7 @@ Rails.application.routes.draw do
   end
 
   resources :forms, only: :update
-
+  
   get "dashboard", to: "pages#dashboard"
+  post "sendemail", to: "send_email#send_email", as: "send_email"
 end

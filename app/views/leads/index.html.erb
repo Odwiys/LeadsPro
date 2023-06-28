@@ -1,53 +1,70 @@
-<div class="container">
-  <div class="row">
-    <h1 class="text-center my-5">Leads</h1>
+<%= form_with url: send_email_path, method: :post do |f| %>
+<div data-controller="popup">
+  <div class="container">
+    <div class="row">
+      <h1 class="text-center">Leads</h1>
 
-    <div class="d-flex col-auto">
-      <i class="fa-solid fa-magnifying-glass p-2 m-1 opacity-25"></i>
-      <div data-controller="search-leads shadow-sm">
-        <%= form_with url: campaign_leads_path, method: :get, html: {class:
-          "mb-4", data: {search_leads_target: "form"}} do |f| %>
-          <%= f.text_field :query,
-                          class: "form-control",
-                          placeholder: "Search...",
-                          value: params[:query],
-                          data: 
-                          {search_leads_target: "input",
-                            action: "keyup->search-leads#update"                     
-                        } %>
-              <% end %>
-              <%# <%= render "show", leads: @leads %> 
+      <div class="d-flex col-auto">
+        <i class="fa-solid fa-magnifying-glass p-2 m-1 opacity-25"></i>
+        <div data-controller="search-leads shadow-sm">
+          <%= form_with url: campaign_leads_path, method: :get, html: {class:
+            "mb-4", data: {search_leads_target: "form"}} do |f| %>
+            <%= f.text_field :query,
+                            class: "form-control",
+                            placeholder: "Search...",
+                            value: params[:query],
+                            data: 
+                            {search_leads_target: "input",
+                              action: "keyup->search-leads#update"                     
+                          } %>
+          <% end %>
+                <%# <%= render "show", leads: @leads %> 
+        </div>
       </div>
-    </div>
 
-    <div class="container">
-      <div class="row g-2">
+      <div class="container">
+        <div class="row g-2">
 
-        <div class="col-1">
-          <div class="p-2 fs-5">No.</div>
+          <div class="col-1">
+            <div class="p-2 fs-5">No.</div>
+          </div>
+
+          <div class="col-3">
+            <div class="p-2 fs-5">Name</div>
+          </div>
+
+          <div class="col-4">
+            <div class="p-2 fs-5">Email</div>
+          </div>
+
+          <div class="col-3">
+            <div class="p-2 fs-5">Phone No.</div>
+          </div>
         </div>
-
-        <div class="col-3">
-          <div class="p-2 fs-5">Name</div>
-        </div>
-
-        <div class="col-4">
-          <div class="p-2 fs-5">Email</div>
-        </div>
-
-        <div class="col-3">
-          <div class="p-2 fs-5">Phone No.</div>
-        </div>
-
       </div>
-    </div>
 
-    <div class="box overflow-auto p-3 shadow-sm box-height">
-      <%= render @leads %>  
+      <div class="box overflow-auto p-3 shadow-sm box-height">
+        
+          <%= render @leads, f: f %>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="mt-4 text-center">
-  <button class="btn btn-primary bottom-buttons" type="submit">Message Leads</button>
+  <div class="mt-4 text-center">
+    <button class="btn btn-primary bottom-buttons text-decoration-none popup-link" type="submit" data-action="click->popup#show">Message Leads</button>
+  </div>
+
+  <%= popup title: "New Message" do %>
+    <p class="opacity-50 mt-5">Input Message to clients here:</p>
+      <%# <textarea class="new-message-box box overflow-auto p-3" placeholder="Write Message Here!"></textarea> %>
+      <textarea class="new-message-box box overflow-auto p-3" name="textarea" placeholder="Write Message Here!"></textarea>
+    <div class="my-4 message-right">
+			<%# <button class="btn btn-primary message-box" type="submit">Message</button> %>
+      <%# <%= link_to "Message", send_email_path, data: { turbo_method: :post } %> 
+      <%= link_to "Message", send_email_path, class: "btn btn-primary message-box" %>
+		</div>
+  <% end %>   
+
+  
 </div>
+<% end %>
