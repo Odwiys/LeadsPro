@@ -32,6 +32,11 @@ Rails.application.routes.draw do
   end
 
   resources :responses, only: %i[edit update]
+  resources :forms, only: [] do
+    resources :questions, only: %i[] do
+      resources :form_questions, only: [:create]
+    end
+  end
 
   resources :questions, only: [] do
     resources :options, only: %i[:create]

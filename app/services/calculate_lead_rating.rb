@@ -1,15 +1,10 @@
-class Lead < ApplicationRecord
-  has_one :response
-  has_many :answers, through: :responses
+class CalculateLeadRating < ApplicationService
+  def initialize
+    @lead = lead
+  end
 
-  validates :name, presence: true
-  validates :email, presence: true, uniqueness: true
-  validates :phone_number, presence: true, uniqueness: true
-
-  after_create :analyse_sentiment
-
-  def analyse_sentiment(response)
-    answers = response.answers
+  def analyse_sentiment
+    answers = @lead.response.answers
     rating = 0.0
     answers.each do |answer|
       # if multiple choice, take hard coded sentiment points
@@ -30,9 +25,11 @@ class Lead < ApplicationRecord
     final_rating = rating / anwers.length
 
     # attribute rating to leads > rating
-    this.rating = final_rating
+    @lead.rating = final_rating
 
     # self.rating = 2
     # save!
   end
 end
+
+# CalculateLeadRating.(lead)

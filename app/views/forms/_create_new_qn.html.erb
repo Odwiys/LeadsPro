@@ -1,8 +1,8 @@
 <%= popup title: "Create a new question" do %>
   <%# Form for question %>
   <%= simple_form_for question, url: campaign_form_questions_path(campaign,form) do |f| %>
-    <%= f.input :format, collection: ['multiple choice', 'open-ended'] %>
-    <%= f.input :title %>
+    <%= f.input :format, collection: ['multiple choice', 'open-ended'], label: "Choose the format of your question" %>
+    <%= f.input :title, label: "Input your question here" %>
 
     <%# creating options %>
     <%#= f.simple_fields_for :options do |option_form| %>
@@ -12,7 +12,6 @@
     <%# end %>
 
     <%#= f.link_to_add "Add Option", :options %>
-
     <%= f.button :submit %>
   <% end %>
 <% end %>
