@@ -1,7 +1,7 @@
 <%# Navbar content over here %>
 <div class="navbar bg-primary p-3 mb-5 rounded" data-controller="navbar">
   <div class="container-fluid justify-content-between">
-    <%= image_tag "logo/logo-white.png", style: "width: 150px;" %>
+    <%= link_to(image_tag("logo/logo-white.png", style: "width: 150px;"), root_path) %>
     <i class="fa fa-bars fa-2x text-white" data-action="click->navbar#openMenu"></i>
   </div>
 
