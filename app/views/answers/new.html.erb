@@ -1,0 +1,12 @@
+<%= simple_form_for(@answers, url: { action: "attempt" }) do |f |%>
+  <% @answers.each do |answer| %>
+    <%= f.simple_fields_for :answers, answer do |answer_fields | %>
+        <%= Question.find(answer.question_id).title %>
+        <%= answer_fields.hidden_field :response_id  %>
+        <%= answer_fields.hidden_field :question_id  %>
+        <%= answer_fields.input :value, label: false  %>
+    <% end %>
+  <% end %>
+
+  <%= f.button :submit %>
+<% end %>

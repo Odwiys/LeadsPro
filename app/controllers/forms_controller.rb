@@ -17,6 +17,11 @@ class FormsController < ApplicationController
     end
   end
 
+  def show
+    @campaign = Campaign.find(params[:campaign_id])
+    @form = Form.find(params[:id])
+  end
+
   def edit
     @form = Form.find(params[:id])
     @lead = Lead.new
