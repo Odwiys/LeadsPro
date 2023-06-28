@@ -2,7 +2,6 @@ class SendEmailController < ApplicationController
   def send_email
 		require 'net/http'
 		require 'json'
-		require 'dotenv/load'
 
 		url = URI.parse('https://api.sendinblue.com/v3/smtp/email')
 		api_key = ENV['BREVO_KEY']
