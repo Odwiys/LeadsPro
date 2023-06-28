@@ -78,3 +78,4 @@ end
 gem "devise"
 gem "faker"
 gem 'sib-api-v3-sdk'
+gem "ruby-openai"

@@ -13,22 +13,18 @@ class LeadsController < ApplicationController
   end
 
   def new
-    @leads = leads.new(params[:id])
-    @leads.user = current_user
+    @lead = Lead.new
+    @form = Form.find(params[:form_id])
   end
 
   def create
-    @lead = Lead.new(leads_params)
-    @response = Response.find(params[:response_id])
-    @lead.response = @response
     @form = Form.find(params[:form_id])
-    @response.form = @form
-    @campaign = Campaign.find(params[:campaign_id])
-    @form.campaign = @campaign
-    @campaign.user = current_user
+    @lead = Lead.new(leads_params)
 
-    if @leads.save
-      redirect_to leads_path
+    if @lead.save
+      @response = Response.create(form: @form, lead: @lead)
+
+      redirect_to edit_response_path(@response)
     else
       render :new, status: :unprocessable_entity
     end
@@ -48,6 +44,6 @@ class LeadsController < ApplicationController
   end
 
   def leads_params
-    params.require(:leads).permit(:name, :email, :phone_number)
+    params.require(:lead).permit(:name, :email, :phone_number)
   end
 end
