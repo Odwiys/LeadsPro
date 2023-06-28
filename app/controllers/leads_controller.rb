@@ -1,18 +1,10 @@
 class LeadsController < ApplicationController
-  #   def create
-  #     @response = Response.find(params[:response_id])
-  #     @lead = Lead.new(lead_params) # except :rating
-
-  #     if @lead.save
-  #     else
-  #   end
-
   before_action :set_leads, only: %i[show]
 
   def index
     @leads = Campaign.find(params[:campaign_id]).leads.order(rating: :desc)
 
-    @leadss = @leads.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
+    @leads = @leads.where("title ILIKE ?", "%#{params[:query]}%") if params[:query].present?
 
     respond_to do |format|
       format.html # Follow regular flow of Rails
@@ -39,6 +31,10 @@ class LeadsController < ApplicationController
   end
 
   def show
+  end
+
+  def message
+    
   end
 
   private

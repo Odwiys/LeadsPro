@@ -28,7 +28,10 @@
 		</div>
 
 		<div class="col-1">
-			<div class="p-2 toggler-wrapper style-2"><%= check_box_tag "Message", 'yes'%></div>
+			<div class="p-2 toggler-wrapper style-2">
+				<%# Need to change lead.email to index later on when we time - Sabrina %>
+				<%= f.check_box "email#{lead.id}", {:class => "myclass", :id => lead.name}, lead.id, "" %>
+			</div>
 		</div>
 
 	</div>
@@ -57,7 +60,7 @@
 				  <p class="text-primary"> <%= question.title %></p>
           <hr>
 					<% lead.response.answers.each do |answer| %>
-					<p><%= answer.value %></p>
+						<p><%= answer.value %></p>
 					<% end %>
 				<% end %>
 			</div>
@@ -83,7 +86,7 @@
 
 		<%# button %>
 		<div class="my-4 message-right">
-			<button class="btn btn-primary message-box" type="submit">Message</button>
+			<%= button_to "Message", send_email_path(lead_id: lead.id), remote: true, class: "btn btn-primary message-box", data: { turbo_frame: "popup-frame" } %>
 		</div>
   <% end %>
 </div>
