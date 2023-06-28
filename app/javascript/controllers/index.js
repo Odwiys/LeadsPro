@@ -18,3 +18,6 @@ application.register("search-campaigns", SearchCampaignsController)
 
 import PopupController from "./popup_controller"
 application.register("popup", PopupController)
+
+import OptionsController from "./options_controller";
+application.register("options", OptionsController);

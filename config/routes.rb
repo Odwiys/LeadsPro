@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   resources :forms, only: :update
 
   get "dashboard", to: "pages#dashboard"
+  # get "options", to: 'options#index'
 end
