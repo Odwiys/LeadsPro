@@ -1,18 +1,8 @@
 <%= popup title: "Add your customized question" do %>
   <%# Form for question %>
   <%= simple_form_for question, url: campaign_form_questions_path(campaign, form) do |f| %>
-    <%= f.input :format, collection: ['Open-Ended'], label: "Choose the format of your question", prompt: "Select a format", data: { controller: "question" } %>
+    <%= f.input :format, as: :hidden, input_html: { value: 'Open-Ended' } %>
     <%= f.input :title, label: "Type your question here" %>
-
-    <div id="options" data-question-target="options">
-      <% if question.format == 'Multiple-Choice' %>
-        <%= f.simple_fields_for :options do |option_form| %>
-          <%= option_form.input :value, label: "Type your option here" %>
-          <%= option_form.input :sentiment_value, label: "Rate your option between (0-10) with 0 being irrelevant and 10 being very relevant" %>
-        <% end %>
-      <% end %>
-    </div>
-
     <%= f.button :submit, class: "btn btn-primary" %>
   <% end %>
 <% end %>

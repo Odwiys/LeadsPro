@@ -7,4 +7,10 @@ class Question < ApplicationRecord
 
   validates :title, presence: true
   validates :format, presence: true
+
+  accepts_nested_attributes_for :options
+
+  def is_mcq?
+    format == "Multiple-Choice"
+  end
 end

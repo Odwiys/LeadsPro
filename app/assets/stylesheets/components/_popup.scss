@@ -23,6 +23,7 @@
 }
 
 .popup-content {
+  overflow-y: scroll;
 	position: fixed;
 	top: 50%;
 	left: 50%;
@@ -152,3 +153,4 @@ textarea {
 	width: 580px;
 	height: 120px;
 }
+

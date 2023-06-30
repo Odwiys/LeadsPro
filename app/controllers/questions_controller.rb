@@ -10,9 +10,11 @@ class QuestionsController < ApplicationController
     @question = Question.new(question_params)
     @form_question.question = @question
     @form_question.form = @form
+
     if @question.save && @form_question.save
-      redirect_to @form, notice: 'Question created successfully.'
+      redirect_to edit_campaign_form_path(@form.campaign_id, @form), notice: 'Question created successfully.'
     else
+
       render :new, status: :unprocessable_entity
     end
   end
@@ -24,6 +26,6 @@ class QuestionsController < ApplicationController
   end
 
   def question_params
-    params.require(:question).permit(:title, :format)
+    params.require(:question).permit(:title, :format, options_attributes: %i[value sentiment_value])
   end
 end

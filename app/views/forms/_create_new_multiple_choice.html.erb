@@ -1,0 +1,14 @@
+<%= popup title: "Add your customized question (MCQ)" do %>
+  <%# Form for question %>
+  <%= simple_form_for question, url: campaign_form_questions_path(campaign, form) do |f| %>
+    <%= f.input :format, as: :hidden, input_html: { value: 'Multiple-Choice' } %>
+    <%= f.input :title, label: "Type your question here" %>
+
+    <div data-controller="add-question-option">
+      <div data-add-question-option-target="optionsList" id="options"></div>
+      <button type="button" class="btn btn-primary" id="add-option-btn" data-action="click->add-question-option#addOption">Add Option</button>
+    </div>
+    <br>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+<% end %>
