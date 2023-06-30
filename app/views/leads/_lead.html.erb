@@ -63,15 +63,16 @@
 			
 			<div class="tab-pane fade show active" id="home-tab-pane-<%= lead.id %>" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
 				<div class="box overflow-auto response-size">
-					<div class="m-4">
-						<% UserQuestion.join_questions_for(current_user).each do |question| %>
-							<hr>
-							<p class="text-primary"> <%= question.title %></p>
-							<hr>
-							<% lead.response.answers.each do |answer| %>
-								<p><%= answer.value %></p>
-							<% end %>
-						<% end %>
+      <div class="m-4">
+        <% UserQuestion.join_questions_for(current_user).each_with_index do |question, index| %>
+          <hr>
+          <p class="text-primary"> <%= question.title %></p>
+          <hr>
+          <%= lead.response.answers[index].value %>
+          <%# lead.response.answers.each do |answer| %>
+            <%# <p>= answer.value</p> %>
+          <%# end %>
+        <% end %>
 					</div>
 				</div>
 				<h3 class="indiv-font pt-3">Rating</h3>
