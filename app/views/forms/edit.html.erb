@@ -71,7 +71,7 @@
 
       <%#= f.submit "Submit new form!", class: "btn btn-primary" %>
       <div class="flex-container my-3">
-      <%= link_to 'Generate Lead Form URL', campaign_form_path(@campaign.name, @form.title), class: "btn btn-primary" %>
+      <%= link_to 'Generate Lead Form URL', campaigns_path, class: "btn btn-primary" %>
       <%= link_to "Back to edit Form Title", new_campaign_form_path(@campaign), class: "btn btn-secondary" %>
       </div>
   </div>

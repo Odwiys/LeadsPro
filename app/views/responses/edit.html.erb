@@ -4,7 +4,7 @@
         <% question = Question.find(answer_field.object.question_id) %>
         <%= question.title %>
         <%= answer_field.hidden_field :question_id  %>
-        <% if answer_field.object.question.format == "multiple choice" %>
+        <% if answer_field.object.question.is_mcq? %>
           <%= answer_field.input :value, label: false, collection: question.options.map { |option| option.value }  %>
         <% else %>
           <%= answer_field.input :value, label: false  %>

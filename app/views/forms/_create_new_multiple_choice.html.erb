@@ -2,6 +2,8 @@
   <%# Form for question %>
   <%= simple_form_for question, url: campaign_form_questions_path(campaign, form) do |f| %>
     <%= f.input :format, as: :hidden, input_html: { value: 'Multiple-Choice' } %>
+    <h5> Please provide a rating between 1 and 10 for each option, where 1 indicates a lower rating and 10 indicates a higher rating.</h5>
+    <br>
     <%= f.input :title, label: "Type your question here" %>
 
     <div data-controller="add-question-option">
