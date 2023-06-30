@@ -1,4 +1,4 @@
-<div class="container" data-controller="choose-previous-questions popup">
+<div class="container" data-controller="choose-previous-questions">
   <div class="row">
     <h1 class="text-center my-5">Customize Your Form Questions</h1>
 
@@ -19,6 +19,13 @@
           <div class="mb-3 string required disabled lead_name">
             <label data-choose-previous-questions-target="addqn" class="form-label string required disabled" for="lead_name">
             <%= question.title %><abbr title="required">*
+            <% if question.is_mcq? %>
+              <br><small>
+                <% question.options.each do |option| %>
+                  <%= option.value %> <br>
+                <% end %>
+              </small>
+            <%end%>
             </abbr></label>
             <input class="delete-checkbox" type="checkbox">
             <input class="form-control string required disabled default-value" value="Lead will input answer here" disabled="disabled" type="text" name="lead[name]" id="lead_name">
@@ -51,10 +58,14 @@
         <div>
           <p>Select the format of the question:</p>
         </div>
-        <%= button_tag 'Open-Ended', class: 'btn btn-info', 'data-action': 'click->popup#show' %>
-        <%= render 'create_new_qn', form: @form, question: Question.new, campaign: @campaign %>
-        <%= button_tag 'Multiple-Choice', class: 'btn btn-info' %>
-        <%= render 'create_new_qn', form: @form, question: Question.new, campaign: @campaign %>
+        <span data-controller="popup">
+          <%= button_tag 'Open-Ended', class: 'btn btn-info', 'data-action': 'click->popup#show' %>
+          <%= render 'create_new_qn', form: @form, question: Question.new, campaign: @campaign %>
+        </span>
+        <span data-controller="popup">
+          <%= button_tag 'Multiple-Choice', class: 'btn btn-info', 'data-action': 'click->popup#show' %>
+          <%= render 'create_new_multiple_choice', form: @form, question: @question, campaign: @campaign %>
+        </span>
       </div>
     </div>
 

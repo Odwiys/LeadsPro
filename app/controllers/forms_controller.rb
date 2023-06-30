@@ -30,6 +30,8 @@ class FormsController < ApplicationController
   end
 
   def edit
+    @question = Question.new
+
     @form = Form.find(params[:id])
     @lead = Lead.new
     @campaign = Campaign.find(params[:campaign_id])

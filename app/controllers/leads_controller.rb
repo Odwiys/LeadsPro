@@ -34,7 +34,7 @@ class LeadsController < ApplicationController
   end
 
   def message
-    
+
   end
 
   private

@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddQuestionOptionController from "./add_question_option_controller"
+application.register("add-question-option", AddQuestionOptionController)
+
 import CampaignCardController from "./campaign_card_controller"
 application.register("campaign-card", CampaignCardController)
 
@@ -21,6 +24,9 @@ application.register("navbar", NavbarController)
 
 import PopupController from "./popup_controller"
 application.register("popup", PopupController)
+
+import QuestionFormController from "./question_form_controller"
+application.register("question-form", QuestionFormController)
 
 import SearchCampaignsController from "./search_campaigns_controller"
 application.register("search-campaigns", SearchCampaignsController)
