@@ -13,8 +13,9 @@ class LeadsController < ApplicationController
   end
 
   def new
+    @campaign = Campaign.find_by(name: params[:campaign_name])
+    @form = Form.find_by(title: params[:form_name], campaign: @campaign)
     @lead = Lead.new
-    @form = Form.find(params[:form_id])
   end
 
   def create
@@ -34,7 +35,7 @@ class LeadsController < ApplicationController
   end
 
   def message
-    
+
   end
 
   private

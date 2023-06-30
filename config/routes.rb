@@ -9,12 +9,15 @@ Rails.application.routes.draw do
   resources :users, only: %i[new create index]
 
   resources :campaigns do
-    resources :forms, only: %i[new create edit show] do
+    resources :forms, only: %i[new create edit] do
       resources :questions, only: %i[new create]
     end
 
+
     resources :leads, except: %i[new create]
   end
+
+  get ':campaign_name/:form_name', to: 'leads#new', as: :campaign_form
 
   resources :leads, only: [] do
     resources :response, only: %i[new create]
