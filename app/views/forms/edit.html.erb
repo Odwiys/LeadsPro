@@ -63,7 +63,7 @@
           <%= render 'create_new_qn', form: @form, question: Question.new, campaign: @campaign %>
         </span>
         <span data-controller="popup">
-          <%= button_tag 'Multiple-Choice', class: 'btn btn-info', 'data-action': 'click->popup#show' %>
+          <%= button_tag 'Multiple Choice', class: 'btn btn-info', 'data-action': 'click->popup#show' %>
           <%= render 'create_new_multiple_choice', form: @form, question: @question, campaign: @campaign %>
         </span>
       </div>
