@@ -23,14 +23,22 @@
           </div>
 
           <div class="d-flex justify-content-center px-2 pt-4">
-            <h1><%= campaign.name.upcase %></h1>
+            <h1><%= campaign.name.titleize %></h1>
           </div>
 
-          <div class="ps-5 mt-3" style="font-size: 20px;">TOTAL LEADS: <u><b><%= campaign.leads.count %></b></u></div>
-          <div class="ps-5 mt-2" style="font-size: 20px;"><u>CAMPAIGN DETAILS</u></div>
-          <div class="campaign-details border border-dark my-3 p-2 shadow-lg"><%= campaign.details.capitalize %></div>
+          <%# <div class="ps-5 mt-3" style="font-size: 20px;">TOTAL LEADS: <u><b><%= campaign.leads.count</b></u></div> %>
+          <%= link_to campaign_leads_path(campaign), style: "text-decoration: none; color: black;" do %>
+            <div class="ps-5 mt-3" style="font-size: 20px;">
+              Total Leads: <u><b><%= campaign.leads.count %></b></u>
+            </div>
+          <% end %>
+          <br>
 
-          <div class="ps-5 pb-3">
+          <div class="ps-5 mt-2" style="font-size: 20px;">Campaign Details:</div>
+          <div class="campaign-details border border-dark ms-5 my-3 p-2"><%= campaign.details.capitalize %></div>
+          <br>
+
+          <%# <div class="ps-5 pb-3">
             <div class="dates d-flex w-100 align-items-baseline">
               <div class="start_date align-items-center">
                 <input class="form-control border-dark start_date me-3" type="date" placeholder="start date" style="border border-dark">
@@ -40,7 +48,7 @@
                 <input class="form-control border-dark end_date me-3" type="date" placeholder="end date">
               </div>
             </div>
-          </div>
+          </div> %>
 
             <div class="campaign-button">
               <button type="submit" class="btn btn-primary btn-lg">EDIT</button>

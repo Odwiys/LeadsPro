@@ -4,7 +4,9 @@
       <h1><%= @campaign.name.upcase %></h1>
     </div>
 
-    <div class="ps-5" style="font-size: 30px;">TOTAL LEADS: <u><b><%=Lead.count%></b></u></div>
+    <% <div class="ps-5" style="font-size: 30px;">TOTAL LEADS: <u><b>=Lead.count</b></u></div> %>
+
+
     <div class="ps-5 mt-5" style="font-size: 30px;">CAMPAIGN DETAILS</div>
     <div class="border border-dark my-5 mx-5 shadow-lg p-3 mb-5"><%= @campaign.details.capitalize %></div>
 
