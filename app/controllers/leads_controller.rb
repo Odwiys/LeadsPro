@@ -1,4 +1,5 @@
 class LeadsController < ApplicationController
+  after_action :allow_iframe
   before_action :set_leads, only: %i[show]
 
   def index
@@ -39,6 +40,10 @@ class LeadsController < ApplicationController
   end
 
   private
+
+  def allow_iframe
+    response.headers.except! 'X-Frame-Options'
+  end
 
   def set_leads
     @lead = Lead.find(params[:id])
