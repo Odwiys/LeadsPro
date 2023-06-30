@@ -8,7 +8,13 @@
         <div class="p-2 mt-1"><%= campaign.date_created %> </div>
       </div>
       <div class="col-3">
-        <div class="p-2 mt-1">URL</div>
+        <div class="p-2 mt-1">
+          <% if campaign.forms.empty? %>
+            <%= link_to 'Create Form', new_campaign_form_path(campaign) %>
+          <% else %>
+            <%= link_to 'View Form', campaign_form_path(campaign.name, campaign.forms.first.title) %>
+          <% end %>
+        </div>
       </div>
       <div class="col-2">
         <%= link_to "EDIT", edit_campaign_path(campaign), class: "btn btn-primary rounded-4 p-2" %>
