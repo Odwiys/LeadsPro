@@ -64,10 +64,40 @@
 
       <%#= f.submit "Submit new form!", class: "btn btn-primary" %>
       <div class="flex-container my-3">
-      <%= link_to "Save", campaigns_path, class: "btn btn-primary" %>
+      <%# <a class="btn btn-primary" id="randomLink" href="https://leadspro-9ddc3d1f2886.herokuapp.com/forms/4/leads/new" target="_blank">Generate Lead Form URL</a> %>
+      <%= link_to 'Generate Lead Form URL', campaign_form_path(@campaign.name, @form.title), class: "btn btn-primary" %>
       <%= link_to "Back to edit Form Title", new_campaign_form_path(@campaign), class: "btn btn-secondary" %>
       </div>
   </div>
+
+      <script>
+        // Retrieve the link element
+        const randomLink = document.getElementById('randomLink');
+
+        // Event listener for link click
+        randomLink.addEventListener('click', (event) => {
+          // Prevent the default behavior of the link
+          event.preventDefault();
+
+          // Generate a random URL
+          const randomURL = generateRandomURL();
+
+          // Open the random URL in a new tab or window
+          window.open(randomURL, '_blank');
+        });
+
+        // Function to generate a random URL
+        function generateRandomURL() {
+          // Replace "form.html" with the actual file name and extension of your form
+          const formURL = "https://leadspro-9ddc3d1f2886.herokuapp.com/forms/4/leads/new";
+
+          // Generate a random query parameter or value
+          const randomParam = Math.random().toString(36).substring(7);
+
+          // Combine the form URL with the random query parameter
+          return `${formURL}?id=${randomParam}`;
+        }
+      </script>
 </div>
 
 <link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
