@@ -39,55 +39,65 @@
 
 
 	<%= popup title: lead.name do %>
-    <div class="d-flex justify-content-between pt-3">
-			<h3 class="indiv-font">Email:</h3>
-			<div class="px-1 box overflow-auto email-box">
-				<%= lead.email %>
+		<div class="d-flex justify-content-between pt-3">
+      <h3 class="indiv-font">Email:</h3>
+      <div class="px-1 box overflow-auto email-box">
+        <%= lead.email %>
+      </div>
+
+      <h3 class="indiv-font">Phone No:</h3>
+      <div class="px-1 box phone-number-box">
+        <%= lead.phone_number %>
+      </div>
+    </div>
+
+		<ul class="nav nav-tabs mt-4" id="myTab<%= lead.id %>" role="tablist">
+			<li class="nav-item" role="presentation">
+				<button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home-tab-pane-<%= lead.id %>" type="button" role="tab" aria-controls="home-tab-pane-<%= lead.id %>" aria-selected="true">Response</button>
+			</li>
+			<li class="nav-item" role="presentation">
+				<button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile-tab-pane-<%= lead.id %>" type="button" role="tab" aria-controls="profile-tab-pane-<%= lead.id %>" aria-selected="false">Message</button>
+			</li>
+		</ul>
+		<div class="tab-content mt-2" id="myTabContent<%= lead.id %>">
+			
+			<div class="tab-pane fade show active" id="home-tab-pane-<%= lead.id %>" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+				<div class="box overflow-auto response-size">
+					<div class="m-4">
+						<% UserQuestion.join_questions_for(current_user).each do |question| %>
+							<hr>
+							<p class="text-primary"> <%= question.title %></p>
+							<hr>
+							<% lead.response.answers.each do |answer| %>
+								<p><%= answer.value %></p>
+							<% end %>
+						<% end %>
+					</div>
+				</div>
+				<h3 class="indiv-font pt-3">Rating</h3>
+				<div class="p-1">
+					<% if lead.rating > 6.66 %>
+						<i class="mx-2 fa-regular fa-star text-lighter fa-xl"></i>
+						<i class="mx-2 fa-regular fa-star-half-stroke text-lighter fa-xl"></i>
+						<i class="mx-2 fa-solid fa-star color-hot fa-xl"></i>
+					<% elsif lead.rating > 3.33 %>
+						<i class="mx-2 fa-regular fa-star text-lighter fa-xl"></i>
+						<i class="mx-2 fa-regular fa-star-half-stroke color-warm fa-xl"></i>
+						<i class="mx-2 fa-solid fa-star text-lighter fa-xl"></i>
+					<% else %>
+						<i class="mx-2 fa-regular fa-star color-cold fa-xl"></i>
+						<i class="mx-2 fa-regular fa-star-half-stroke text-lighter fa-xl"></i>
+						<i class="mx-2  fa-solid fa-star text-lighter fa-xl"></i>
+					<% end %>
+				</div>
 			</div>
 
-			<h3 class="indiv-font">Phone No:</h3>
-			<div class="px-1 box phone-number-box">
-				<%= lead.phone_number %>
+			<div class="tab-pane fade" id="profile-tab-pane-<%= lead.id %>" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
+				<textarea maxlength="350" class="box overflow-auto message-box-size"></textarea>
+				<div class="my-4 d-flex flex-row-reverse">
+					<%= button_to "Message", send_email_path(lead_id: lead.id), remote: true, class: "btn btn-primary message-box", data: { turbo_frame: "popup-frame" } %>
+				</div>
 			</div>
-		</div>
-
-		<%# responses and answers %>
-		<h3 class="indiv-font pt-3">Response</h3>
-		<div class="box overflow-auto response-size">
-			<div class="m-4">
-				<% UserQuestion.join_questions_for(current_user).each_with_index do |question, index| %>
-          <hr>
-				  <p class="text-primary"> <%= question.title %></p>
-          <hr>
-					<%= lead.response.answers[index].value %>
-					<%# lead.response.answers.each do |answer| %>
-						<%# <p>= answer.value</p> %>
-					<%# end %>
-				<% end %>
-			</div>
-		</div>
-
-		<%# rating %>
-		<h3 class="indiv-font pt-3">Rating</h3>
-		<div class="p-1">
-			<% if lead.rating > 6.66 %>
-				<i class="mx-2 fa-regular fa-star text-lighter fa-xl"></i>
-				<i class="mx-2 fa-regular fa-star-half-stroke text-lighter fa-xl"></i>
-				<i class="mx-2 fa-solid fa-star color-hot fa-xl"></i>
-			<% elsif lead.rating > 3.33 %>
-				<i class="mx-2 fa-regular fa-star text-lighter fa-xl"></i>
-				<i class="mx-2 fa-regular fa-star-half-stroke color-warm fa-xl"></i>
-				<i class="mx-2 fa-solid fa-star text-lighter fa-xl"></i>
-			<% else %>
-				<i class="mx-2 fa-regular fa-star color-cold fa-xl"></i>
-				<i class="mx-2 fa-regular fa-star-half-stroke text-lighter fa-xl"></i>
-				<i class="mx-2  fa-solid fa-star text-lighter fa-xl"></i>
-			<% end %>
-		</div>
-
-		<%# button %>
-		<div class="my-4 message-right">
-			<%= button_to "Message", send_email_path(lead_id: lead.id), remote: true, class: "btn btn-primary message-box", data: { turbo_frame: "popup-frame" } %>
 		</div>
   <% end %>
 </div>
