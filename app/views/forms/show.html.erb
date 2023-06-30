@@ -1,7 +1,11 @@
 <div class="container">
-
-  <% @form.questions.each do |question| %>
-    <%= simple_form_for() %>
+  <h1>Form for campaign: *insert campaign name here*</h1>
+    <%# <div class="my-5 w-70"> %>
+  <%= simple_form_for([@form, @lead]) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :email %>
+    <%= f.input :phone_number %>
+    <%= f.submit %>
   <% end %>
-
+  <%# </div> %>
 </div>
