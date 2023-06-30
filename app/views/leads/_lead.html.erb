@@ -55,13 +55,14 @@
 		<h3 class="indiv-font pt-3">Response</h3>
 		<div class="box overflow-auto response-size">
 			<div class="m-4">
-				<% UserQuestion.join_questions_for(current_user).each do |question| %>
+				<% UserQuestion.join_questions_for(current_user).each_with_index do |question, index| %>
           <hr>
 				  <p class="text-primary"> <%= question.title %></p>
           <hr>
-					<% lead.response.answers.each do |answer| %>
-						<p><%= answer.value %></p>
-					<% end %>
+					<%= lead.response.answers[index].value %>
+					<%# lead.response.answers.each do |answer| %>
+						<%# <p>= answer.value</p> %>
+					<%# end %>
 				<% end %>
 			</div>
 		</div>
