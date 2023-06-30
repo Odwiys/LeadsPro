@@ -23,7 +23,15 @@ class LeadsController < ApplicationController
 
     if @lead.save
       @response = Response.create(form: @form, lead: @lead)
-
+      client = Vonage::Client.new(
+        api_key: ENV['VONYAGE_KEY'],
+        api_secret: ENV['VONYAGE_SECRET']
+      )
+      client.sms.send(
+        from: "Vonage APIs",
+        to: "6591295101",
+        text: 'A new lead has just been validated'
+      )
       redirect_to edit_response_path(@response)
     else
       render :new, status: :unprocessable_entity
@@ -34,7 +42,7 @@ class LeadsController < ApplicationController
   end
 
   def message
-    
+
   end
 
   private
