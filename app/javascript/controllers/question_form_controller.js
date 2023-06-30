@@ -11,7 +11,7 @@ export default class extends Controller {
     const formatValue = this.element.value;
     const optionsTarget = this.optionsTarget;
 
-    if (formatValue === "Multiple-Choice") {
+    if (formatValue === "multiple choice") {
       optionsTarget.classList.remove("d-none");
     } else {
       optionsTarget.classList.add("d-none");

@@ -11,6 +11,6 @@ class Question < ApplicationRecord
   accepts_nested_attributes_for :options
 
   def is_mcq?
-    format == "Multiple-Choice"
+    format == "multiple choice"
   end
 end
