@@ -25,8 +25,8 @@ class FormsController < ApplicationController
   end
 
   def show
-    @campaign = Campaign.find(params[:campaign_id])
-    @form = Form.find(params[:id])
+    @campaign = Campaign.find_by(name: params[:campaign_name])
+    @form = Form.find_by(title:params[:form_name])
   end
 
   def edit

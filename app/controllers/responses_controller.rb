@@ -29,6 +29,15 @@ class ResponsesController < ApplicationController
       AnalyzeSentiments.call(answers)
       lead = @response.lead
       CalculateLeadRating.(lead)
+      client = Vonage::Client.new(
+        api_key: ENV['VONYAGE_KEY'],
+        api_secret: ENV['VONYAGE_SECRET']
+      )
+      client.sms.send(
+        from: "Vonage APIs",
+        to: "6591295101",
+        text: 'A new lead has just been validated on LeadsPro!, please visit your LeadsPro account to view the lead.'
+      )
       redirect_to root_path
     else
       render "edit"

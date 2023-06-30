@@ -1,6 +1,6 @@
 <div class="container">
-  <h1>New Lead</h1>
-    <div class="my-5 w-70">
+  <h1><%= @form.title %></h1>
+    <%# <div class="my-5 w-70"> %>
       <%= simple_form_for([@form, @lead]) do |f| %>
         <%= f.input :name %>
         <%= f.input :email %>

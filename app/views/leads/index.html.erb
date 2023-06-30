@@ -59,12 +59,10 @@
       <%# <textarea class="new-message-box box overflow-auto p-3" placeholder="Write Message Here!"></textarea> %>
       <textarea class="new-message-box box overflow-auto p-3" name="textarea" placeholder="Write Message Here!"></textarea>
     <div class="my-4 message-right">
-			<%# <button class="btn btn-primary message-box" type="submit">Message</button> %>
       <%# <%= link_to "Message", send_email_path, data: { turbo_method: :post } %>
-      <%= link_to "Message", send_email_path, class: "btn btn-primary message-box" %>
+      <%# <%= link_to "Message", send_email_path, class: "btn btn-primary message-box" %> 
+			<button class="btn btn-primary message-box" type="submit">Message</button>
 		</div>
   <% end %>
-
-
 </div>
 <% end %>
