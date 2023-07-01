@@ -48,7 +48,8 @@ Rails.application.routes.draw do
   end
 
   resources :forms, only: :update
-  
+
   get "dashboard", to: "pages#dashboard"
+  get "thankyou", to: "pages#thankyou"
   post "sendemail", to: "send_email#send_email", as: "send_email"
 end
