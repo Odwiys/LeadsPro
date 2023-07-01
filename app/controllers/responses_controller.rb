@@ -38,7 +38,7 @@ class ResponsesController < ApplicationController
         to: "6591295101",
         text: 'A new lead has just been validated on LeadsPro!, please visit your LeadsPro account to view the lead.'
       )
-      redirect_to root_path
+      redirect_to thankyou_path
     else
       render "edit"
     end
