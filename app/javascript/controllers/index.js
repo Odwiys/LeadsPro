@@ -19,6 +19,9 @@ application.register("choose-previous-questions", ChoosePreviousQuestionsControl
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import IndividualEmailController from "./individual_email_controller"
+application.register("individual-email", IndividualEmailController)
+
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
 

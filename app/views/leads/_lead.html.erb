@@ -1,4 +1,4 @@
-<div data-controller="popup">
+<div data-controller="popup individual-email">
 	<div class="row g-2">
 
 		<div class="col-1">
@@ -41,7 +41,7 @@
 	<%= popup title: lead.name do %>
 		<div class="d-flex justify-content-between pt-3">
       <h3 class="indiv-font">Email:</h3>
-      <div class="px-1 box overflow-auto email-box">
+      <div class="px-1 box overflow-auto email-box email-field">
         <%= lead.email %>
       </div>
 
@@ -94,9 +94,9 @@
 			</div>
 
 			<div class="tab-pane fade" id="profile-tab-pane-<%= lead.id %>" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
-				<textarea id="message_box_<%= lead.id %>" maxlength="350" class="box overflow-auto message-box-size"></textarea>
+				<textarea id="message_box_<%= lead.id %>" maxlength="350" class="box overflow-auto message-box-size" data-individual-email-target="message"></textarea>
 				<div class="my-4 d-flex flex-row-reverse">
-					<%= button_to "Message", send_email_path(lead_id: lead.id), remote: true, params: { message: "FML" }, class: "btn btn-primary message-box", data: { turbo_frame: "popup-frame" } %>
+					<%= button_to "Message", send_individual_email_path(lead_id: lead.id, lead_email: lead.email, lead_name: lead.name), remote: true, params: { message: "coding!" }, class: "btn btn-primary message-box", data: { turbo_frame: "popup-frame" }, id: "send-message-button" %>
 				</div>
 			</div>
 		</div>
@@ -104,9 +104,10 @@
 </div>
 
 <script>
-	document.querySelector("#message_box_<%= lead.id %>").addEventListener("keyup", (e)=>{
-		// console.log("gelp")
-		// console.log(e.currentTarget.value)
+	document.querySelector("#message_box_<%= lead.id %>").addEventListener("keyup", (e) => {
+		console.log(e.currentTarget.value);
+		const emailMail = document.getElementsByClassName('email-field')[<%= lead.id - 1 %>];
+		console.log(emailMail.innerHTML)
 		document.querySelector("#profile-tab-pane-<%= lead.id %>").querySelector("input[name='message']").value = e.currentTarget.value
 	});
 </script>

@@ -51,4 +51,5 @@ Rails.application.routes.draw do
   
   get "dashboard", to: "pages#dashboard"
   post "sendemail", to: "send_email#send_email", as: "send_email"
+  post "sendindividualemail", to: "send_email#send_individual_email", as: "send_individual_email"
 end
