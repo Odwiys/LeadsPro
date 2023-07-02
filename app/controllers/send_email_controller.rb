@@ -1,8 +1,8 @@
+require 'net/http'
+require 'json'
+
 class SendEmailController < ApplicationController
   def send_email
-		require 'net/http'
-		require 'json'
-
 		url = URI.parse('https://api.sendinblue.com/v3/smtp/email')
 		api_key = ENV['BREVO_KEY']
 
@@ -15,12 +15,13 @@ class SendEmailController < ApplicationController
 		leads = Lead.where(id: lead_ids)
 
 		leads.each do |lead|
-			name_content = "Dear #{lead.name}"
+
+		name_content = "Hi #{lead.name}, new lead information from LeadsPro."
 			name_content = name_content.delete('[]')
 
 			sender = {
-				"name": "name",
-				"email": "sabrinaleess6@gmail.com"
+				"name": "LeadsPro",
+				"email": "leadsprofesh@gmail.com"
 			}
 
 			to = ['sabrinaleess6@gmail.com'].map { |email| { "email": email } }
@@ -33,8 +34,8 @@ class SendEmailController < ApplicationController
 				"htmlContent": textarea_content,
 				"subject": name_content,
 				"replyTo": {
-					"email": "sabrinaleess6@gmail.com",
-					"name": "name"
+					"email": "leadsprofesh@gmail.com",
+					"name": "LeadsPro"
 				}
 			}
 
@@ -64,8 +65,6 @@ class SendEmailController < ApplicationController
 	end
 
 	def send_individual_email
-		require 'net/http'
-		require 'json'
 
 		url = URI.parse('https://api.sendinblue.com/v3/smtp/email')
 		api_key = ENV['BREVO_KEY']
@@ -91,7 +90,7 @@ class SendEmailController < ApplicationController
 				"htmlContent": message,
 				"subject": single_name_content,
 				"replyTo": {
-					"email": "leadsprofesh@gmail@gmail.com",
+					"email": "leadsprofesh@gmail.com",
 					"name": "LeadsPro"
 				}
 			}

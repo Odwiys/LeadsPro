@@ -1,5 +1,5 @@
 <%= form_with url: send_email_path, method: :post do |f| %>
-<div data-controller="popup individual-email">
+<div data-controller="popup">
   <div class="container">
     <div class="row">
       <h1 class="text-center">Leads</h1>
@@ -59,9 +59,9 @@
       <%# <textarea class="new-message-box box overflow-auto p-3" placeholder="Write Message Here!"></textarea> %>
       <textarea class="new-message-box box overflow-auto p-3" name="textarea" placeholder="Write Message Here!"></textarea>
     <div class="my-4 message-right">
-      <%# <%= link_to "Message", send_email_path, data: { turbo_method: :post } %>
+      <%# <%= button_to "Message", send_email_path(), class: "btn btn-primary message-box" %>
       <%# <%= link_to "Message", send_email_path, class: "btn btn-primary message-box" %> 
-			<button class="btn btn-primary message-box" id="message-button" type="submit">Message</button>
+			<button class="btn btn-primary message-box" type="submit">Message</button>
 		</div>
   <% end %>
 </div>
