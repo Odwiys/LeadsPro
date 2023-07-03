@@ -18,16 +18,18 @@
         <% @form.questions.each do |question| %>
           <div class="mb-3 string required disabled lead_name">
             <label data-choose-previous-questions-target="addqn" class="form-label string required disabled" for="lead_name">
-            <%= question.title %><abbr title="required">*
+            <%= question.title %> <abbr title="required">*</abbr>
             <% if question.is_mcq? %>
               <br><small>
+              <br>
+              <p><strong>Options:</strong></p>
                 <% question.options.each do |option| %>
                   <%= option.value %> <br>
                 <% end %>
               </small>
             <%end%>
             </abbr></label>
-            <input class="delete-checkbox" type="checkbox">
+            <%# <input class="delete-checkbox" type="checkbox"> %>
             <input class="form-control string required disabled default-value" value="Lead will input answer here" disabled="disabled" type="text" name="lead[name]" id="lead_name">
           </div>
         <% end %>

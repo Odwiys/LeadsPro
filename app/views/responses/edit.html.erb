@@ -1,16 +1,20 @@
 <div class='container'>
-  <%= simple_form_for(@response) do |f |%>
-    <%= f.simple_fields_for :answers, @response.answers.sort_by(&:question_id) do |answer_field | %>
-        <% question = Question.find(answer_field.object.question_id) %>
-        <%= question.title %>
-        <%= answer_field.hidden_field :question_id  %>
-        <% if answer_field.object.question.is_mcq? %>
-          <%= answer_field.input :value, label: false, collection: question.options.map { |option| option.value }  %>
-        <% else %>
-          <%= answer_field.input :value, label: false  %>
-         <% end %>
-    <% end %>
+  <h1>Please fill in these information.</h1>
+  <br>
+  <div class='edit-form'>
+    <%= simple_form_for(@response) do |f |%>
+      <%= f.simple_fields_for :answers, @response.answers.sort_by(&:question_id) do |answer_field | %>
+          <% question = Question.find(answer_field.object.question_id) %>
+          <%= question.title %>
+          <%= answer_field.hidden_field :question_id  %>
+          <% if answer_field.object.question.is_mcq? %>
+            <%= answer_field.input :value, label: false, collection: question.options.map { |option| option.value }  %>
+          <% else %>
+            <%= answer_field.input :value, label: false  %>
+          <% end %>
+      <% end %>
 
-  <%= f.button :submit, "Save Responses", class: "btn btn-info" %>
-<% end %>
+    <%= f.button :submit, "Save Responses", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
