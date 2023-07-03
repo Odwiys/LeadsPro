@@ -1,5 +1,5 @@
 <div class='container'>
-  <div class='width-80'>
+  <div class='edit-form'>
     <%= simple_form_for(@response) do |f |%>
       <%= f.simple_fields_for :answers, @response.answers.sort_by(&:question_id) do |answer_field | %>
           <% question = Question.find(answer_field.object.question_id) %>
