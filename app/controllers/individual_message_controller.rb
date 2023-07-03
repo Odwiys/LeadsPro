@@ -1,0 +1,2 @@
+class IndividualMessageController < ApplicationController
+end
