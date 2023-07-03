@@ -10,6 +10,9 @@ application.register("add-question-option", AddQuestionOptionController)
 import CampaignCardController from "./campaign_card_controller"
 application.register("campaign-card", CampaignCardController)
 
+import ChartController from "./chart_controller"
+application.register("chart", ChartController)
+
 import CheckedController from "./checked_controller"
 application.register("checked", CheckedController)
 

@@ -35,35 +35,16 @@
     <div class="mt-5">
       <div class="container-purple-blue p-3 shadow-sm border-light" style="width: 1200;">
         <h2> Total Leads </h2>
-					<p class="grey-text"> A concise overview of the leads' trends over the last months</p>
-          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
-          <body>
-          <canvas id="myChart" style="width:100%;max-width:100%"></canvas>
-
-          <script>
-          const xValues = ["January","February","March","April","May","June"];
-          const yValues = [35,33,38,41,54,62];
-
-          new Chart("myChart", {
-            type: "line",
-            data: {
-              labels: xValues,
-              datasets: [{
-                fill: false,
-                lineTension: 0,
-                backgroundColor: "rgba(0,0,255,1.0)",
-                borderColor: "rgba(0,0,255,0.1)",
-                data: yValues
-              }]
-            },
-            options: {
-              legend: {display: false},
-              scales: {
-                yAxes: [{ticks: {min: 6, max:100}}],
-              }
-            }
-          });
-          </script>
+        <p class="grey-text"> A concise overview of the leads' trends over the last months</p>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+        <canvas
+          id="myChart"
+          style="width:100%;max-width:100%"
+          data-controller="chart"
+          data-chart-x-value="<%= @x_values %>"
+          data-chart-y-value="<%= @y_values %>"
+          data-chart-type-value="line">
+        </canvas>
       </div>
 	</div>
 </div>
