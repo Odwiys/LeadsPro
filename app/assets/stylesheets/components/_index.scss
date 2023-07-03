@@ -6,7 +6,6 @@
 @import "popup";
 @import "calendar";
 @import "components/sent_emails";
-@import "components/edit_form";
 
 
 .background {
@@ -73,7 +72,7 @@ div > img {
   padding: 20px;
   background-color: white;
   left: 438px;
-  top: 327px;
+  top: 360px;
   border-radius: 50%;
   z-index: +1;
   border: 2px solid #2563afbc;
@@ -85,4 +84,8 @@ div > img {
 
 .welcome-box {
   width: 450px
+}
+
+.registration {
+  margin: 10rem;
 }
