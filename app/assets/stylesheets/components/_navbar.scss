@@ -10,6 +10,12 @@
   width: 40px;
 }
 
+/* Modify the background color */
+.navbar-custom {
+  background: linear-gradient(to right, #2564AF, #69cce3);
+  justify-content: space-between;
+}
+
 .navbar-nav {
   width: 100%;
   justify-content: space-between;
@@ -57,16 +63,16 @@
   }
 }
 
-.menu-content{
+.menu-content {
   position: fixed;
   height: 100vh;
   width: 20%;
   top: 0;
   right: 0;
-  background-color: $lp-primary-blue;
-  box-shadow: -2px 0 10px rgba(0,0,0,0.3);
+  background: linear-gradient(to bottom, #57B2D7, #2564AF);
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.3);
   transform: translateX(100%);
-  color:white;
+  color: white;
   transition: 300ms;
 }
 
@@ -104,4 +110,6 @@
 
 .navbar-top-margin {
   margin-top: 100px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
