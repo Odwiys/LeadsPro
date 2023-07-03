@@ -1,50 +1,43 @@
 <div class="container mt-5">
 
 	<div class="container">
-  <h5>Welcome, <%= current_user.name %>!</h5>
-  <br>
+  	<div class="container-purple-blue p-3 shadow-sm">
+      <h4><strong>Let's get started, <%= current_user.name %>!</strong></h4>
+      <p> Let's take a peek at how your campaigns and leads are performing...</p>
+    </div>
+    <br>
 		<div class="row">
 			<div class="col">
-
-				<div class="container p-3 box shadow-sm">
-					<h3> Total Campaigns </h3>
-					<p> THIS WEEK </p>
-					<h2><strong>40</strong></h2>
+				<div class="container-purple-blue p-3 shadow-sm">
+					<h3>Campaigns </h3>
+					<p>THIS WEEK </p>
+					<h2><strong><%= Campaign.count %></strong></h2>
 				</div>
 			</div>
 
 			<div class="col">
-				<div class="container p-3 box shadow-sm">
-					<h3> Qualified Leads </h3>
-					<p> THIS WEEK </p>
-					<h2><strong>40</strong></h2>
+				<div class="container-purple-blue p-3 shadow-sm">
+					<h3>Qualified Leads </h3>
+					<p>THIS WEEK </p>
+					<h2><strong><%= Lead.where("rating > 6.66").count %></strong></h2>
 				</div>
 			</div>
 
 			<div class="col">
-				<div class="container p-3 box shadow-sm">
-					<h3> Spam Leads </h3>
-					<p> THIS WEEK </p>
-					<h2><strong>40</strong></h2>
+				<div class="container-purple-blue p-3 shadow-sm">
+					<h3>Leads </h3>
+					<p>THIS WEEK </p>
+					<h2><strong><%= Lead.count %></strong></h2>
 				</div>
 			</div>
+
 		</div>
-	</div>
+  </div>
 
 	<div class="mt-5">
 		<div class="container p-3 box shadow-sm" style="width: 915px;">
-			<h2> GRAPH </h2>
-			<h4>MONTHLY LEADS</h4>
-
-			<p>$ LEADS</p>
-			<p>$ LEADS</p>
-			<p>$ LEADS</p>
-			<p>$ LEADS</p>
-			<p>$ LEADS</p>
-			<p>$ LEADS</p>
+			<h2> Overview </h2>
+			<h4>Chart</h4>
 		</div>
 	</div>
-
-    </div>
-  </div>
 </div>
