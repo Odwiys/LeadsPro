@@ -111,13 +111,15 @@ class SendEmailController < ApplicationController
 			request.body = data.to_json
 
 			response = http.request(request)
-
+			@success = false
 			if response.code.to_i < 400
 				# Successful request
 				puts "Email sent successfully!"
+				@success = true
 			else
 				# Error occurred
 				puts "SENDINBLUE ERROR: #{response.body}"
+				@success = false
 			end
 	end
 end

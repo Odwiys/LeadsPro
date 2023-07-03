@@ -11,7 +11,7 @@
 .background {
   background-image: url("background.svg");
   background-size: cover;
-  background-color: #2564AF;
+  background-color: white;
 }
 
 .welcome-height {
@@ -63,4 +63,25 @@
 
 .indiv-font{
   font-size: 20px;
+}
+
+div > img {
+  max-width: 15%;
+  max-height: 15%;
+  position: relative;
+  padding: 20px;
+  background-color: white;
+  left: 438px;
+  top: 327px;
+  border-radius: 50%;
+  z-index: +1;
+  border: 2px solid #2563afbc;
+}
+
+.login-button {
+  width: 400px;
+}
+
+.welcome-box {
+  width: 450px
 }
