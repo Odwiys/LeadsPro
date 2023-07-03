@@ -1,43 +1,69 @@
 <div class="container mt-5">
 
 	<div class="container">
-  	<div class="container-purple-blue p-3 shadow-sm">
+  	<div class="container p-3">
       <h4><strong>Let's get started, <%= current_user.name %>!</strong></h4>
-      <p> Let's take a peek at how your campaigns and leads are performing...</p>
+      <p class="grey-text">Let's take a peek at how your campaigns and leads are performing...</p>
     </div>
     <br>
 		<div class="row">
 			<div class="col">
-				<div class="container-purple-blue p-3 shadow-sm">
-					<h3>Campaigns </h3>
-					<p>THIS WEEK </p>
+				<div class="container-purple-blue p-3 shadow-sm border-light">
+					<h3>Campaigns</h3>
+					<p class="grey-text">THIS WEEK</p>
 					<h2><strong><%= Campaign.count %></strong></h2>
 				</div>
 			</div>
 
 			<div class="col">
-				<div class="container-purple-blue p-3 shadow-sm">
+				<div class="container-purple-blue p-3 shadow-sm border-light">
 					<h3>Qualified Leads </h3>
-					<p>THIS WEEK </p>
+					<p class="grey-text">THIS WEEK</p>
 					<h2><strong><%= Lead.where("rating > 6.66").count %></strong></h2>
 				</div>
 			</div>
 
 			<div class="col">
-				<div class="container-purple-blue p-3 shadow-sm">
+				<div class="container-purple-blue p-3 shadow-sm border-light">
 					<h3>Leads </h3>
-					<p>THIS WEEK </p>
+					<p class="grey-text">THIS WEEK</p>
 					<h2><strong><%= Lead.count %></strong></h2>
 				</div>
 			</div>
-
 		</div>
-  </div>
 
-	<div class="mt-5">
-		<div class="container p-3 box shadow-sm" style="width: 915px;">
-			<h2> Overview </h2>
-			<h4>Chart</h4>
-		</div>
+    <div class="mt-5">
+      <div class="container-purple-blue p-3 shadow-sm border-light" style="width: 1200;">
+        <h2> Total Leads </h2>
+					<p class="grey-text"> A concise overview of the leads' trends over the last months</p>
+          <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+          <body>
+          <canvas id="myChart" style="width:100%;max-width:100%"></canvas>
+
+          <script>
+          const xValues = ["January","February","March","April","May","June"];
+          const yValues = [35,33,38,41,54,62];
+
+          new Chart("myChart", {
+            type: "line",
+            data: {
+              labels: xValues,
+              datasets: [{
+                fill: false,
+                lineTension: 0,
+                backgroundColor: "rgba(0,0,255,1.0)",
+                borderColor: "rgba(0,0,255,0.1)",
+                data: yValues
+              }]
+            },
+            options: {
+              legend: {display: false},
+              scales: {
+                yAxes: [{ticks: {min: 6, max:100}}],
+              }
+            }
+          });
+          </script>
+      </div>
 	</div>
 </div>
