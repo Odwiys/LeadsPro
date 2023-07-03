@@ -74,7 +74,7 @@ class SendEmailController < ApplicationController
 		destination_email = params[:lead_email]
 		message = params[:message]
 		destination_name = params[:lead_name]
-		
+
 
 		single_name_content = "Hi #{destination_name}, new lead information from LeadsPro."
 			single_name_content = single_name_content.delete('[]')
