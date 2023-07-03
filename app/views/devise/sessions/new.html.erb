@@ -1,4 +1,4 @@
-<div class="background" style="height: 94vh;">
+<div class="background" style="height: 100vh;">
   <div><%= image_tag('logo/logo-icon.png')%></div>
   <div id="screen-size" class="d-flex justify-content-center">
     <div class="row m-5 p-5 box bg-white shadow-lg welcome-height welcome-box"> 
@@ -19,6 +19,11 @@
             <%= f.button :submit, "Log in", class: "btn btn-primary mb-3 login-button" %>
           </div>
         <% end %>
+        <div class="flex-parent my-2">
+          <div class="line-div"><div class="the-line"></div></div>
+          <div class="text-center">OR</div>
+          <div class="line-div"><div class="the-line"></div></div>
+        </div>
         <div class="d-flex justify-content-center">
           <p>New to LeadsPro? <%= render "devise/shared/links" %></p>
         </div>
