@@ -1,4 +1,6 @@
 <div class='container'>
+  <h1>Please fill in these information.</h1>
+  <br>
   <div class='edit-form'>
     <%= simple_form_for(@response) do |f |%>
       <%= f.simple_fields_for :answers, @response.answers.sort_by(&:question_id) do |answer_field | %>
