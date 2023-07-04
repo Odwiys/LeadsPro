@@ -96,7 +96,7 @@
 			<div class="tab-pane fade" id="profile-tab-pane-<%= lead.id %>" role="tabpanel" aria-labelledby="profile-tab" tabindex="0">
 				<textarea id="message_box_<%= lead.id %>" maxlength="350" class="box overflow-auto message-box-size" data-individual-email-target="message"></textarea>
 				<div class="my-4 d-flex flex-row-reverse">
-					<%= button_to "Message", send_individual_email_path(lead_id: lead.id, lead_email: lead.email, lead_name: lead.name), remote: true, params: { message: "coding!" }, class: "btn btn-primary message-box", data: { turbo_frame: "popup-frame" }, id: "send-message-button" %>
+					<%= button_to "Message", send_individual_email_path(lead_id: lead.id, lead_email: lead.email, lead_name: lead.name), remote: true, params: { message: "" }, class: "btn btn-primary message-box", data: { turbo_frame: "popup-frame" }, id: "send-message-button" %>
 				</div>
 			</div>
 		</div>
