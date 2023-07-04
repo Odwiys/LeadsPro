@@ -3,7 +3,7 @@
 
   <div class="d-flex col-auto">
     <i class="fa-solid fa-magnifying-glass p-2 m-1 opacity-25"></i>
-    <div data-controller="search-campaigns">
+    <div data-controller="search-campaigns" style="width: 1000px;">
       <%= form_with url: campaigns_path, method: :get, html: {class:
         "mb-4", data: {search_campaigns_target: "form"}} do |f| %>
         <%= f.text_field :query,
