@@ -11,7 +11,13 @@
 .background {
   background-image: url("background.svg");
   background-size: cover;
-  background-color: white;
+  // background-color: rgb(255, 255, 255);
+}
+
+.background-low-opacity {
+  background-image: url("background.svg");
+  background-size: contain;
+  opacity: 0.3;
 }
 
 .welcome-height {
@@ -19,8 +25,8 @@
 }
 
 .box {
-	border: 1px solid rgba(00, 00, 00, 0.2);
-	border-radius: 6px;
+	border: 1px solid rgba(0, 0, 0, 0.14);
+	border-radius: 2px;
 }
 
 .box-height {

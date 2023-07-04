@@ -2,11 +2,11 @@
 <div data-controller="popup">
   <div class="container">
     <div class="row">
-      <h1 class="text-center">Leads</h1>
+      <h1 class="text-center my-5">Leads</h1>
 
-      <div class="d-flex col-auto">
+      <div class="d-flex col-auto my-3">
         <i class="fa-solid fa-magnifying-glass p-2 m-1 opacity-25"></i>
-        <div data-controller="search-leads shadow-sm">
+        <div data-controller="search-leads shadow-sm" style="width: 1000px;">
           <%= form_with url: campaign_leads_path, method: :get, html: {class:
             "mb-4", data: {search_leads_target: "form"}} do |f| %>
             <%= f.text_field :query,
@@ -22,7 +22,7 @@
         </div>
       </div>
 
-      <div class="container">
+      <div class="container mt-1">
         <div class="row g-2">
 
           <div class="col-1">
