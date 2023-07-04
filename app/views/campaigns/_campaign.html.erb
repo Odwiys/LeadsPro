@@ -35,29 +35,19 @@
           <%# <div class="ps-5 mt-3" style="font-size: 20px;">TOTAL LEADS: <u><b><%= campaign.leads.count</b></u></div> %>
           <%= link_to campaign_leads_path(campaign), style: "text-decoration: none; color: black;" do %>
             <div class="ps-5 mt-3" style="font-size: 20px;">
-              Total Leads: <u><b><%= campaign.leads.count %></b></u>
-            </div>
-          <% end %>
+            <br>
+              <!-- Assuming the value '<%= campaign.leads.count %>' is within a container -->
+            <p>Total Leads: <span class="text-primary"><%= campaign.leads.count %></span></p>
+              </div>
+            <% end %>
+
+          <div class="ps-5 mt-3" style="font-size: 20px;">Campaign Details:</div>
+          <div class="campaign-details border border-dark my-3 p-2"><%= campaign.details.capitalize %></div>
           <br>
 
-          <div class="ps-5 mt-2" style="font-size: 20px;">Campaign Details:</div>
-          <div class="campaign-details border border-dark ms-5 my-3 p-2"><%= campaign.details.capitalize %></div>
-          <br>
-
-          <%# <div class="ps-5 pb-3">
-            <div class="dates d-flex w-100 align-items-baseline">
-              <div class="start_date align-items-center">
-                <input class="form-control border-dark start_date me-3" type="date" placeholder="start date" style="border border-dark">
-              </div>
-
-              <div class="end_date align-items-center">
-                <input class="form-control border-dark end_date me-3" type="date" placeholder="end date">
-              </div>
-            </div>
-          </div> %>
-
-            <div class="campaign-button">
-              <button type="submit" class="btn btn-primary btn-lg">EDIT</button>
+            <div class="campaign-button d-flex justify-content-center justify justify-content-evenly">
+              <%= link_to "View Leads", campaign_leads_path(campaign), class: "btn btn-primary btn-lg" %>
+              <button type="submit" class="btn btn-primary btn-lg">Edit</button>
             </div>
         </div>
       </div>
