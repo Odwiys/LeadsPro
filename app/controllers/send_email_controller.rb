@@ -16,7 +16,7 @@ class SendEmailController < ApplicationController
 
 		leads.each do |lead|
 
-		name_content = "Hi #{lead.name}, new lead information from LeadsPro."
+		name_content = "Hi #{lead.name}, I am Melvin from PropNex!"
 			name_content = name_content.delete('[]')
 
 			sender = {
@@ -76,7 +76,7 @@ class SendEmailController < ApplicationController
 		destination_name = params[:lead_name]
 
 
-		single_name_content = "Hi #{destination_name}, new lead information from LeadsPro."
+		single_name_content = "Hi #{destination_name}, I am Melvin from PropNex!"
 			single_name_content = single_name_content.delete('[]')
 
 			sender = {
