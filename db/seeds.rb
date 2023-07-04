@@ -116,7 +116,7 @@ puts 'Options Created'
 
 puts "Creating users..."
 agent_one = User.create!(
-  name: 'Melvin Lim',
+  name: 'Mathias Loh',
   email: 'one@email.com',
   phone_number: '91425122',
   cea_number: 'R123456A',
