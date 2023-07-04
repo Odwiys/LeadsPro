@@ -35,7 +35,9 @@
           <%# <div class="ps-5 mt-3" style="font-size: 20px;">TOTAL LEADS: <u><b><%= campaign.leads.count</b></u></div> %>
           <%= link_to campaign_leads_path(campaign), style: "text-decoration: none; color: black;" do %>
             <div class="ps-5 mt-3" style="font-size: 20px;">
-              Total Leads: <u><b><%= campaign.leads.count %></b></u>
+              <!-- Assuming the value '<%= campaign.leads.count %>' is within a container -->
+            <p>Total Leads: <span class="text-primary"><%= campaign.leads.count %></span></p>
+
             </div>
           <% end %>
           <br>
