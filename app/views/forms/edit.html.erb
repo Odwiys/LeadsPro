@@ -44,7 +44,13 @@
                 choose_previous_questions_target: "form"
               } do |f| %>
               <%= f.input :questions,
-              input_html: { id: "tom-select-it" },
+              input_html: {
+                id: "tom-select-it",
+                data: {
+                  controller: 'tom-select',
+                  tom_select_options_value: @options
+                }
+              },
               data: {
                 choose_previous_questions_target: "tom"
               } %>
@@ -58,7 +64,7 @@
 
       <div class="form-control default-value">
         <div>
-          <p>Select the format of the queHstion:</p>
+          <p>Select the format of the question:</p>
         </div>
         <span data-controller="popup">
           <%= button_tag 'Open-Ended', class: 'btn btn-info', 'data-action': 'click->popup#show' %>
@@ -78,7 +84,7 @@
       </div>
   </div>
 
-      <script>
+      <%# <script>
         // Retrieve the link element
         const randomLink = document.getElementById('randomLink');
 
@@ -105,18 +111,5 @@
           // Combine the form URL with the random query parameter
           return `${formURL}?id=${randomParam}`;
         }
-      </script>
+      </script> %>
 </div>
-
-<link href="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/css/tom-select.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/tom-select@2.2.2/dist/js/tom-select.complete.min.js"></script>
-<script>
-    var settings = {
-      options: [
-          <% @previous_questions.each do |compulsory| %>
-            {value: "<%= compulsory.id %>", text: "<%= compulsory.title %>"},
-          <% end %>
-      ]
-    };
-    new TomSelect('#tom-select-it',settings);
-</script>

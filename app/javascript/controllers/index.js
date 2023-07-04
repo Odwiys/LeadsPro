@@ -36,3 +36,6 @@ application.register("question-form", QuestionFormController)
 
 import SearchCampaignsController from "./search_campaigns_controller"
 application.register("search-campaigns", SearchCampaignsController)
+
+import TomSelectController from "./tom_select_controller"
+application.register("tom-select", TomSelectController)
