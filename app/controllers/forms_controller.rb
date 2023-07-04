@@ -36,6 +36,8 @@ class FormsController < ApplicationController
     @lead = Lead.new
     @campaign = Campaign.find(params[:campaign_id])
     @previous_questions = UserQuestion.non_compulsory_questions_for(current_user) - @form.questions
+
+    @options = @previous_questions.map { |compulsory| { value: compulsory.id, text: compulsory.title }}
   end
 
   def update
