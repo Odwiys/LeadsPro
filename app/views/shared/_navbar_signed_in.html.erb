@@ -15,33 +15,33 @@
       <div class="menu-container navbar-top-margin">
         <%= button_to "+ New Campaign", new_campaign_path, method:  :get, class: "btn btn-info text-white mb-5" %>
         <ul class="menu-items">
-
-        <p>Menu</p>
+        <hr>
           <li class="nav-item">
             <a href="<%= root_path %>" class="nav-link link-light">
-              <i class="fa fa-home"></i> Dashboard
+              <i class="fa fa-home"></i>  Dashboard
             </a>
           </li>
           <li class="nav-item">
             <a href="<%= campaigns_path %>" class="nav-link link-light">
-              <i class="fa fa-bullhorn"></i> Campaigns
+              <i class="fa fa-bullhorn"></i>  Campaigns
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link link-light">
-              <i class="fa fa-users"></i> Leads
+              <i class="fa fa-users"></i>  Leads
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link link-light">
-              <i class="fa fa-chart-bar"></i> Report
+              <i class="fa fa-chart-bar"></i>  Report
             </a>
           </li>
           <li class="nav-item">
             <a href="#" class="nav-link link-light">
-              <i class="fa fa-gear"></i> Settings
+              <i class="fa fa-gear"></i>  Settings
             </a>
           </li>
+        <hr>
         </ul>
         <% if user_signed_in? %>
           <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "btn btn-light navbar-top-margin", form: { data: { "turbolinks-action": "replace", "turbolinks-frame": "_top" } } %>
